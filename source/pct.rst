@@ -1,0 +1,16 @@
+Programming of Cartographic Tasks
+#################################
+
+
+Virtual Environemnts
+--------------------
+
+.. code-block:: bash
+
+	virtualenv env
+	source env/bin/activate
+
+	pip install <packagename>
+
+virtualenvs tend to break if you move the folder, in this case the easiest thing
+is to delete and reinstall

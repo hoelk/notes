@@ -1,0 +1,1228 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Programmieren 1 (Java) &mdash; Geodäsie und Geoinformation 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Geodäsie und Geoinformation 1 documentation" href="index.html"/>
+        <link rel="next" title="IMPLGIS - Notes" href="implgis.html"/>
+        <link rel="prev" title="2015-04-27 Project start" href="pct_diary.html"/>
+<link rel="stylesheet" href="/home/hoelk/Dropbox/uni/_notes_Sphinx/source/_static/r-markdown-tweaks.css">
+<link rel="stylesheet" href="/home/hoelk/Dropbox/uni/_notes_Sphinx/source/_static/highlight/styles/default.css">
+<script src="/home/hoelk/Dropbox/uni/_notes_Sphinx/source/_static/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Geodäsie und Geoinformation</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pct.html">Programming cartographic tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pct.html#virtual-environemnts">Virtual Environemnts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pct_diary.html">2015-04-27 Project start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Programmieren 1 (Java)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notizen">Notizen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testfragen">Testfragen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#codebeispiele">Codebeispiele:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implgis.html">IMPLGIS - Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implgis.html#data-structures">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implgis.html#algorythms">Algorythms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implgis.html#implgis-plpython">IMPLGIS - Plpython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implgis.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geopython.html">Geopython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geopython.html#setup-virtal-environemtn">Setup virtal environemtn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopython.html#list-comprehension">List comprehension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopython.html#cli">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geopython.html#try-except-block">Try-Except Block</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorythms_intro.html">GEOALG Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorythms_intro.html#point-position">point position</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Stats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#combinatorics">Combinatorics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html#hypothesis-testing">Hypothesis Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#tricks">Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#setup-git">Setup git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#setup-postgresql-postgis">Setup Postgresql / PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#samba">Samba</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python.html#virtual-environemnts">Virtual Environemnts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html#renaming-files">renaming files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">Javascript</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html#usefull-libraries">Usefull Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sphinx.html#install-custom-themes">Install custom themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx.html#combine-sphinx-and-r-markdown">Combine Sphinx and R-Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Geodäsie und Geoinformation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Programmieren 1 (Java)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/eprog.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="programmieren-1-java">
+<h1>Programmieren 1 (Java)<a class="headerlink" href="#programmieren-1-java" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notizen">
+<h2>Notizen<a class="headerlink" href="#notizen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="einfache-primitive-datentypen-in-java">
+<span id="primitve-data-types"></span><h3>Einfache / Primitive Datentypen in Java:<a class="headerlink" href="#einfache-primitive-datentypen-in-java" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="13%" />
+<col width="17%" />
+<col width="25%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Datentyp</th>
+<th class="head">Größe¹</th>
+<th class="head">Wrapper-Klasse</th>
+<th class="head">Wertebereich</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>boolean</td>
+<td>JVM-Spezifisch</td>
+<td>java.lang.Boolean</td>
+<td>true / false</td>
+<td>Boolescher Wahrheitswert</td>
+</tr>
+<tr class="row-odd"><td>char</td>
+<td>16 bit</td>
+<td>java.lang.Character</td>
+<td>0 … 65.535 (z. B. ‘A’)</td>
+<td>Unicode-Zeichen (UTF-16)</td>
+</tr>
+<tr class="row-even"><td>byte</td>
+<td>8 bit</td>
+<td>java.lang.Byte</td>
+<td>-128 … 127</td>
+<td>Zweierkomplement-Wert</td>
+</tr>
+<tr class="row-odd"><td>short</td>
+<td>16 bit</td>
+<td>java.lang.Short</td>
+<td>-32.768 … 32.767</td>
+<td>Zweierkomplement-Wert</td>
+</tr>
+<tr class="row-even"><td>int</td>
+<td>32 bit</td>
+<td>java.lang.Integer</td>
+<td>-2.147.483.648 … 2.147.483.647</td>
+<td>Zweierkomplement-Wert</td>
+</tr>
+<tr class="row-odd"><td>long</td>
+<td>64 bit</td>
+<td>java.lang.Long</td>
+<td><dl class="first last docutils">
+<dt>-9.223.372.036.854.775.808 …</dt>
+<dd>9.223.372.036.854.775.807</dd>
+</dl>
+</td>
+<td>Zweierkomplement-Wert</td>
+</tr>
+<tr class="row-even"><td>float</td>
+<td>32 bit</td>
+<td>java.lang.Float</td>
+<td>+/-1,4E-45 … +/-3,4E+38</td>
+<td>Gleitkommazahl (IEEE 754)</td>
+</tr>
+<tr class="row-odd"><td>double</td>
+<td>64 bit</td>
+<td>java.lang.Double</td>
+<td>+/-4,9E-324 … +/-1,7E+308</td>
+<td>Gleitkommazahl doppelter Genauigkeit (IEEE 754)</td>
+</tr>
+</tbody>
+</table>
+<p>¹: minimaler Speicherverbrauch</p>
+<p><a class="reference external" href="http://de.wikibooks.org/wiki/Java_Standard:_Primitive_Datentypen">Quelle</a></p>
+</div>
+</div>
+<div class="section" id="testfragen">
+<h2>Testfragen<a class="headerlink" href="#testfragen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="semester">
+<h3>1. Semester<a class="headerlink" href="#semester" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="test-1">
+<h4>Test 1<a class="headerlink" href="#test-1" title="Permalink to this headline">¶</a></h4>
+<p>In welcher Datei steht der Bytecode der Klasse „Motorfahrzeug“?</p>
+<blockquote>
+<div>Motorfahrzeug.class</div></blockquote>
+<p>Was ist Voraussetzung um einer Variablen Werte eines anderen Datentyps zuweisen zu können?</p>
+<blockquote>
+<div>Typenkonversation
+* Implizit: Wird automatisch gemacht
+* Explizit: Muss angegeben werden, bsp: <code class="docutils literal"><span class="pre">(double)(int)</span> <span class="pre">1</span></code></div></blockquote>
+<p>Welche der folgenden Datentypen sind primitive Datentypen in Java</p>
+<blockquote>
+<div><p>Bool, bool, integer, Integer, int, Int, Real, real, Float, float,
+Double, double, Rational, rational, Complex, complex, String, string</p>
+<p><strong>Antwort :</strong>  int, float, double</p>
+<p><strong>Anmerkungen</strong></p>
+<ul class="simple">
+<li>String is eine Klasse, kein einfacher Datentyp</li>
+<li>Primitive Datentypen haben immer kleine Anfangsbuchstaben</li>
+<li>Siehe <a class="reference internal" href="#primitve-data-types"><span>Einfache / Primitive Datentypen in Java:</span></a>.</li>
+</ul>
+</div></blockquote>
+<p>Was ist Polymorphie?</p>
+<blockquote>
+<div><p>Eine Methode ist polymorph wenn sie unterschiedliche Datentypen annimmt.</p>
+<ul class="simple">
+<li>Beispiel: Der <code class="docutils literal"><span class="pre">+</span></code> Opperator ist akzeptiert <code class="docutils literal"><span class="pre">int</span></code> und <code class="docutils literal"><span class="pre">double</span></code> Werte.</li>
+</ul>
+</div></blockquote>
+<p>Hat eine Anweisung einen Typ?</p>
+<blockquote>
+<div>Nein, eine Anweisung kann aber einem Ausdruck einen Wert zuweisen</div></blockquote>
+<p>Was macht ein Typecast und wie ist die Syntax?</p>
+<blockquote>
+<div><p>Konvertiert einen Ausdruck von einem Datentyp in einem anderen.</p>
+<ul class="simple">
+<li>Z.b (int) (double)</li>
+<li><a class="reference external" href="http://www.java-tutorial.org/typecasting.html">Mehr Details</a></li>
+</ul>
+</div></blockquote>
+<p>Wie ruft man den Java-Compiler auf der Kommandozeile auf?</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">javac</span> <span class="pre">Klassenname.java</span></code></div></blockquote>
+<p>Was ist der Unterschied zwischen int und double?</p>
+<blockquote>
+<div><ul class="simple">
+<li>int: ganze Zahlen</li>
+<li>double: Gleitkommazahlen</li>
+</ul>
+</div></blockquote>
+<p>Mit welchen Operationen können Sie aus einer 7-stelligen Matrikelnummer das Inskriptionsjahr extrahieren?</p>
+<blockquote>
+<div><ul class="simple">
+<li>0499999 / 100000 = 04</li>
+<li>04 + 2000 = 2004</li>
+</ul>
+</div></blockquote>
+<p>Kommt die folgende Schleife zu einem Ende? Begründung?</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">for(int</span> <span class="pre">j=1;</span> <span class="pre">j!=0;</span> <span class="pre">j++)</span> <span class="pre">;</span></code></p>
+<p>Ja, wegen wrap around. Sobald der der Wert für j den maximalen integer wert
+<code class="docutils literal"><span class="pre">231</span> <span class="pre">-</span> <span class="pre">1</span></code> übersteigt fängt er von ganz unten an <code class="docutils literal"><span class="pre">-231</span></code>.</p>
+<p>Anmerkung: <code class="docutils literal"><span class="pre">double</span></code> überlauf wrapt nicht sonder liefert +/- Unendlich.</p>
+</div></blockquote>
+<p>Wie startet man ein Java-Programm?</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">java</span> <span class="pre">Klassenname</span></code> in der Kommandozeile eingeben.</div></blockquote>
+<p>Welche Dateiendung muss eine Java-Quelltextdatei haben?</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">.java</span></code></div></blockquote>
+<p>Wie heißt die Datei, in welcher der Quelltext der Klasse „Motorfahrzeug“ steht?</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">Motorfahrzeug.java</span></code></div></blockquote>
+<p>Was wird benötigt, um auf einem beliebigen Rechner ein Java-Programm ausführen zu können?</p>
+<blockquote>
+<div>Ein JRE (Java Runtime Envirnment) und das Programm (.class Datei).</div></blockquote>
+<p>Was brauchen Sie um Java-Quellcode zu erstellen?</p>
+<blockquote>
+<div>Einen text editor.</div></blockquote>
+<p>Wie erzeugt man ausgehend von der Datei „Test.java“ die Datei „Test.class“?</p>
+<blockquote>
+<div>Kompilieren. <code class="docutils literal"><span class="pre">javac</span> <span class="pre">Test.java</span></code></div></blockquote>
+<p>Was versteht man unter einem Syntaxfehler?</p>
+<blockquote>
+<div>Angabe entspricht nicht der formalen Gramatik oder Rechtschreibung von Java</div></blockquote>
+<p>Welche Art von Fehlern kann ein Compiler feststellen?</p>
+<blockquote>
+<div>Syntaxfehler</div></blockquote>
+<p>Ein Programm läßt sich fehlerfrei übersetzen, liefert aber falsche Ergebnisse.
+Wie nennt man einen solchen Fehler?</p>
+<blockquote>
+<div>Semantikfehler</div></blockquote>
+<p>Ein Programm beendet sich nicht wie vorgesehen, sondern „stürzt ab“.
+Wie nennt man einen solchen Fehler?</p>
+<blockquote>
+<div>Laufzeitfehler (runtime error)</div></blockquote>
+<p>Muss jede Variable einen Datentyp haben?</p>
+<blockquote>
+<div>Ja</div></blockquote>
+<p>Kann man einer Variablen Werte von einem anderen Datentyp zuweisen?</p>
+<blockquote>
+<div>Nein. Man kann aber unter umständen Datentypen konvertierten (typecasten). Dies
+kann auch autamtisch passieren.
+Z.b. Wenn man versucht einer <code class="docutils literal"><span class="pre">double</span></code> Variablen einen <code class="docutils literal"><span class="pre">integer</span></code> wert
+zuzuweisen, wird dieser automatisch nach <code class="docutils literal"><span class="pre">double</span></code> konvertiert.</div></blockquote>
+<p>Wenn man einen Datentyp A einer Variablen von einem anderen Datentyp B zuweisen kann,
+dann sagt man „A ist . . . . . . . . . zu B“.</p>
+<blockquote>
+<div>kompatibel (implizite Typenkonversation wird durchgeführt)
+(<code class="docutils literal"><span class="pre">integer</span></code> ist kompatibel zu <code class="docutils literal"><span class="pre">double</span></code>, aber nicht umgekehrt!)</div></blockquote>
+<p>Was ist der Unterschied zwischen float und double?</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Beides sind datentypen für Gleitkommawerte</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">double</span></code> stellt mehr Speicherplatz zur Verfügung, daher:</dt>
+<dd><ul class="first last simple">
+<li>höhere Genauigkeit (<code class="docutils literal"><span class="pre">double</span></code> steht für <em>Doppelte Genauigkeit</em>)</li>
+<li>höheres Max und tieferes Min als <code class="docutils literal"><span class="pre">float</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Siehe <a class="reference internal" href="#primitve-data-types"><span>Einfache / Primitive Datentypen in Java:</span></a></p>
+</li>
+</ul>
+</div></blockquote>
+<p>Welche der folgenden Namen sind gültige Bezeichner in Java?</p>
+<blockquote>
+<div><p>3fach, null, jahr2000, 8ung, after_sun, just-in-time, class, classic,
+r2d2, a1a1a1a1a, 12345abcde, holzWeg</p>
+<p>jahr2000, after_sun, classic, r2d2, a1a1a1a1a, holzWeg</p>
+<dl class="docutils">
+<dt>Regeln:</dt>
+<dd><ul class="first last simple">
+<li>Der Name darf nicht mit einer Ziffer beginnen</li>
+<li>Sonderzeichen wie : * ; + - / sind nicht nicht erlaubt</li>
+<li>Reservierte Wörter und Schlüsselwörter sind nicht erlaubt</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>Was ist der Unterschied zwischen = und == ?</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">=</span></code>  ist eine Zuweisung (<code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> weist der Variablen <code class="docutils literal"><span class="pre">a</span></code> den Wert <code class="docutils literal"><span class="pre">1</span></code> zu)</li>
+<li><code class="docutils literal"><span class="pre">==</span></code> ist ein Vergleich  (<code class="docutils literal"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">1</span></code> gibt aus <code class="docutils literal"><span class="pre">true</span></code>)</li>
+</ul>
+</div></blockquote>
+<p>Welche Modifier kennen Sie und was ist Ihre Bedeutung?</p>
+<blockquote>
+<div><p>Access Control Modifiers:</p>
+<p>Java provides a number of access modifiers to set access levels for classes, variables, methods and constructors. The four access levels are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Visible to the package, the default. No modifiers are needed.</li>
+<li><code class="docutils literal"><span class="pre">private</span></code> :  Visible to the class only .</li>
+<li><code class="docutils literal"><span class="pre">public</span></code>:    Visible to the world .</li>
+<li><code class="docutils literal"><span class="pre">protected</span></code>: Visible to the package and all subclasses ().</li>
+</ul>
+</div></blockquote>
+<p>Non Access Modifiers:</p>
+<p>Java provides a number of non-access modifiers to achieve many other functionality.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">static</span></code> for creating class methods and variables</li>
+<li>&#8216;<code class="docutils literal"><span class="pre">final</span></code> modifier for finalizing the implementations of classes, methods, and variables. (können nicht mehr geändert werden)</li>
+<li><code class="docutils literal"><span class="pre">abstract</span></code> modifier for creating abstract classes and methods.</li>
+<li><code class="docutils literal"><span class="pre">synchronized</span></code> and volatile modifiers, which are used for threads.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Was ist der Unterscheid zwischen Ausdruck und Anweisung?</p>
+<blockquote>
+<div>Ein Ausdruck hat einen bestimmten Typ, er kann als Teil von anderen Ausdrucken
+verwendet werden.
+Eine Anweisung hat keinen Typ, sie bewirkt irgend etwas.</div></blockquote>
+<p>Welche Operationen sind mit ganzen Zahlen möglich?</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>Arithmethische opperationen:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">%</span> <span class="pre">++</span></code> (increment) <code class="docutils literal"><span class="pre">--</span></code> (decrement)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Vergleichsopperationen:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">==</span> <span class="pre">!=</span> <span class="pre">&gt;</span> <span class="pre">&lt;</span> <span class="pre">&gt;=</span> <span class="pre">&lt;=</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Bitweise Operationen (haben wir nicht durchgemacht)</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Was macht der Operator % ?</p>
+<blockquote>
+<div>Rest einer Ganzzahldivision</div></blockquote>
+<p>Welche Arten von Anweisungen sind in einem Schleifenrumpf erlaubt?</p>
+<blockquote>
+<div>Alle</div></blockquote>
+<p>Was ist ein Block? Welche Auswirkungen sind damit verbunden?</p>
+<blockquote>
+<div>Variablen die innerhalb eines Blocks initialisiert werden, gelten nur
+in diesem.</div></blockquote>
+<p>Welche besonderen Werte kann eine double-Variable annehmen?</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Double.Min_value</span></code>, <code class="docutils literal"><span class="pre">Double.Max_Value</span></code> : Maximal/Minimalwert</li>
+<li><code class="docutils literal"><span class="pre">NaN</span></code> : Not a Number</li>
+<li><code class="docutils literal"><span class="pre">positive_infinity</span></code>, <code class="docutils literal"><span class="pre">negative_infinity</span></code></li>
+</ul>
+</div></blockquote>
+<p>Wann benötigt man einen Typecast?</p>
+<blockquote>
+<div><ul class="simple">
+<li>Implizite Typenkonversation geht nur, wenn ein niederwertiger Datentyp in einen höher wertigen Datentypen umgewandelt wird (<code class="docutils literal"><span class="pre">int</span></code> -&gt; <code class="docutils literal"><span class="pre">double</span></code>)</li>
+<li>explizite Typenkonversation mittels typecast funktioniert auch anders herum</li>
+</ul>
+</div></blockquote>
+<p>Kann man in Java eigene Typen definieren?</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ja, allerdings nur Referenztypen und keine primitiven typen.</li>
+</ul>
+</div></blockquote>
+<p>Was versteht man unter Initialisierung?</p>
+<blockquote>
+<div><ul class="simple">
+<li>Wertzuweisung, erfolgt nach der Dekleration (Spezifizierung des Datentyps)</li>
+<li>Dekleration <code class="docutils literal"><span class="pre">int</span> <span class="pre">i;</span></code></li>
+<li>Initialisierung <code class="docutils literal"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1;</span></code></li>
+</ul>
+</div></blockquote>
+<p>Kann der Wert 10(−20) in einer double-Variable gespeichert werden?</p>
+<blockquote>
+<div>Ja</div></blockquote>
+<p>Was ist der Vorteil einer IDE?</p>
+<blockquote>
+<div><p>Z.b.:</p>
+<ul class="simple">
+<li>Syntaxhighlighting,</li>
+<li>Code completion,</li>
+<li>Debugger,</li>
+<li>(teil)automatisiertes kompilieren</li>
+<li>integration von version managment</li>
+<li>refactoring tools, etc..</li>
+</ul>
+</div></blockquote>
+<p>Wie errechnet sich die Größe von Math.MAX_VALUE?</p>
+<blockquote>
+<div>Gibt&#8217;s nicht</div></blockquote>
+</div>
+<div class="section" id="test-2">
+<h4>Test 2<a class="headerlink" href="#test-2" title="Permalink to this headline">¶</a></h4>
+<p>In welchen zwei unterschiedlichen Situationen kommt in Java das reservierte Wort this zum Einsatz?</p>
+<blockquote>
+<div><ul class="simple">
+<li>Zum Zugriff auf eine Objektvariable, wenn sie durch einen gleichnamigen Parameter oder eine gleichnamige lokale Variable verdeckt wird.</li>
+<li>Bei der Konstruktorverkettung zum Aufruf eines anderen Konstruktors.</li>
+</ul>
+</div></blockquote>
+<p>Was bedeutet overloading und worauf ist dabei zu achten?</p>
+<blockquote>
+<div>Overloading bezeichnet die Möglichkeit,
+dass eine Klasse mehrere Methoden mit gleichem Namen
+haben kann. Diese Methoden müssen
+sich aber anhand der Parameterliste unterscheiden lassen,
+entweder durch unterschiedliche Anzahl von Parametern oder durch unterschiedliche Datentypen der
+Parameter.</div></blockquote>
+<p>Wozu dient ein Konstruktor?</p>
+<blockquote>
+<div>Ein Konstruktor dient zur korrekten Initialisierung eines neu erzeugten Objekts einer Klasse.</div></blockquote>
+<p>Wieviele Konstruktoren kann eine Klasse minimal und maximal haben?</p>
+<blockquote>
+<div>Jede Klasse hat mindestens einen Konstruktor und kann beliebig viele davon haben. Wenn in einer
+Klasse kein Konstruktor definiert wird, dann erzeugt der Compiler automatisch einen
+Default-Konstruktor.</div></blockquote>
+<p>Wie funktioniert die Initialisierung von Objekten im Gegensatz zu primitiven Variablen?</p>
+<blockquote>
+<div>Im Gegensatz zu primitiven Variablen, die explizit initialisiert werden müssen,
+sind Objekte nach dem
+Anlegen automatisch initialisiert. Falls Objektvariablen nicht durch den Konstruktor initialisiert werden,
+bekommen Sie typabhängig
+passende Default-Werte.</div></blockquote>
+<p>Was sind die Vor- und Nachteile einer unveranderlichen Klasse</p>
+<blockquote>
+<div>Vorteil: Unveränderliche Klassen können fast wie primitive Variablen verwendet werden.
+Nachteil: Methoden zur Veränderung eines Objekts müssen jeweils ein neues Objekt erzeugen.</div></blockquote>
+<p>In Java gibt es keine Moglichkeit, für Klassen Operatoren zu definieren. Wie kann man sich ersatzweise behlfen?</p>
+<blockquote>
+<div>Man kann Methoden definieren, welche die entsprechenden Operationen durchführen.</div></blockquote>
+<p>Was fällt Ihnen zu folgender Anweisung in einem Java-Programm ein?</p>
+<blockquote>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="k">if</span> <span class="o">(</span><span class="n">punkt</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span>
+<span class="o">{</span>
+<span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Es wird hier geprüft, ob die Variable <cite>punkt</cite> ein Objekt referenziert.</p>
+</div></blockquote>
+<p>Was sind die wesentlichen Unterschiede zwischen den Java-Typen String und StringBuilder?</p>
+<blockquote>
+<div>StringBuilder ist einer normale veränderliche
+Klasse.
+String ist unveränderlich
+und hat ein paar Besonderheiten: kein new notwendig, +-Operator zur
+Verkettung,</div></blockquote>
+<p>Der Vergleich von Referenztypen mit den Operatoren == bzw. != ist zwar moglich, aber meistens nicht besonders sinnvoll. Warum ist das so?</p>
+<blockquote>
+<div>Weil die beiden Operatoren nur die Objektreferenzen vergleichen, aber nicht den Inhalt der Objekte. Der
+Vergleich von zwei Referenzvariablen liefert also nur dann true, wenn die beiden Variablen auf dasselbe
+Objekt verweisen.</div></blockquote>
+<p>Wie kann man die Länge eines Strings zur Laufzeit ermitteln?</p>
+<blockquote>
+<div>variablenname.length()</div></blockquote>
+<p>Wie kann man die Länge eines Arrays zur Laufzeit bekommen?</p>
+<blockquote>
+<div>Über die Objektvariable length.
+array.length</div></blockquote>
+<p>Ist die Operation &#8220;1&#8221;+ 2 zulässig? Falls ja: Welchen Typ hat das Ergebnis?</p>
+<blockquote>
+<div>Ja, String</div></blockquote>
+<p>Ist die Operation &#8216;1&#8217;+ 2 zulässig? Falls ja: Welchen Typ hat das Ergebnis?</p>
+<blockquote>
+<div>Ja, Int</div></blockquote>
+<p>Definieren Sie ein array und initialisieren Sie es mit folgenden Werten; 14, 2, 17, 71, 100.0</p>
+<blockquote>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="kt">double</span><span class="o">[]</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[]</span> <span class="o">{</span><span class="mi">14</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">17</span><span class="o">,</span> <span class="mi">71</span><span class="o">,</span> <span class="mf">100.0</span><span class="o">};</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Welche Methoden bezeichnet man auch als Funktionen?</p>
+<blockquote>
+<div>Methoden mit einem Rückgabewert</div></blockquote>
+<p>Was bedeutet das reservierte Wort private in Java?</p>
+<blockquote>
+<div>Ein Zugriff auf diese Elemente von außen ist nicht mäglich.</div></blockquote>
+<p>Was ist ein Copy-Konstruktor?</p>
+<blockquote>
+<div>Erzeugt eine Kopie eines Objekts.</div></blockquote>
+<p>Welche Wert hat eine boolean-Objektvariable nach der Erzeugung, falls die Klasse keinen explizit definierten Konstruktor hat?</p>
+<blockquote>
+<div>false</div></blockquote>
+<p>Zählen Sie alle Ihnen bekannte Werttypen in Java auf.</p>
+<blockquote>
+<div>char, byte, short, int, long, boolean, float, double</div></blockquote>
+<p>Wie werden neue Objekte erzeugt?</p>
+<blockquote>
+<div>Mit dem reservierten Wort new wird ein Konstruktor aufgerufen.</div></blockquote>
+<p>Wie werden Klassenvariablen definiert?</p>
+<blockquote>
+<div>Mit dem Modifier static</div></blockquote>
+<p>Geben Sie ein einfaches Beispiel fär die Definition einer Methode und deren Aufruf an.</p>
+<blockquote>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="c1">// Definition:</span>
+   <span class="kt">double</span> <span class="nf">kubik</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">;</span> <span class="o">}</span>
+
+<span class="c1">// Aufruf:</span>
+   <span class="kt">double</span> <span class="n">y</span><span class="o">=</span><span class="n">myobj</span><span class="o">.</span><span class="na">kubik</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Wodurch unterscheiden sich die Zeichensätze ASCII, ISO-Latin1 und Unicode?</p>
+<blockquote>
+<div>Anzahl der Zeichen, verschiedene Zeichen mit Zeichencodes gräßer 12</div></blockquote>
+<p>Was ist die Gemeinsamkeit bei den Zeichensätzen ASCII, ISO-Latin1 und Unicode?</p>
+<blockquote>
+<div>Die ersten 128 Zeichen sind gleich.</div></blockquote>
+<p>Wie viele Elemente enthält das folgende Array: int [][][] = new int [2][4][3]; ?</p>
+<blockquote>
+<div>2 · 4 · 3 = 24 Elemente</div></blockquote>
+<p>Welche besonderen Werte kann eine double-Variable annehmen?</p>
+<blockquote>
+<div>Double.NaN, Double,POSITIVE INFINITY, Double.NEGATIVE INFINITY</div></blockquote>
+<p>Was bedeutet das reservierte Wort public in Java?</p>
+<blockquote>
+<div>Auf das entsprechende Element ist ein Zugriff von außen möglich.</div></blockquote>
+<p>Was ist die Aufgabe eines Konstruktors?</p>
+<blockquote>
+<div>Objekt erzeugen und Anfangszustand herstellen.</div></blockquote>
+<p>Welchen Wert hat eine lokale int-Variable, der kein Wert zugewiesen wurde?</p>
+<blockquote>
+<div>Der Wert ist undefiniert.</div></blockquote>
+<p>Wieviele Referenztypen kann es in einem Java-Programm geben?</p>
+<blockquote>
+<div>beliebig viele</div></blockquote>
+<p>Wie kann ein Ojekt in Java wieder zerstört werden?</p>
+<blockquote>
+<div>Das geschieht automatisch.</div></blockquote>
+<p>Was ist das Besondere an Klassenvariablen?</p>
+<blockquote>
+<div>Klassenvariablen sind nur einmal pro Klasse vorhanden.</div></blockquote>
+<p>Wie ist ein Methodenkopf aufgebaut?</p>
+<blockquote>
+<div>Typ Name ( Parameterliste )</div></blockquote>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>2. Semester<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="codebeispiele">
+<h2>Codebeispiele:<a class="headerlink" href="#codebeispiele" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zahlentrippel">
+<h3>Zahlentrippel<a class="headerlink" href="#zahlentrippel" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tripple</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">b</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">c</span><span class="o">;</span>
+
+    <span class="n">Tripple</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="kt">int</span> <span class="n">b</span><span class="o">,</span><span class="kt">int</span> <span class="n">c</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span> <span class="o">(</span><span class="n">Tripple</span> <span class="n">trip</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Tripple</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">9</span> <span class="o">,</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">9</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">99</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t2</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t3</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t4</span><span class="o">)</span> <span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="polynomial">
+<h3>Polynomial<a class="headerlink" href="#polynomial" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tripple</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">b</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">c</span><span class="o">;</span>
+
+    <span class="n">Tripple</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="kt">int</span> <span class="n">b</span><span class="o">,</span><span class="kt">int</span> <span class="n">c</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span> <span class="o">(</span><span class="n">Tripple</span> <span class="n">trip</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">trip</span><span class="o">.</span><span class="na">b</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Tripple</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">9</span> <span class="o">,</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">9</span><span class="o">);</span>
+        <span class="n">Tripple</span> <span class="n">t4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tripple</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">1</span> <span class="o">,</span><span class="mi">99</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t2</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t3</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">t1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t4</span><span class="o">)</span> <span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ubungsaufgaben">
+<h3>Übungsaufgaben<a class="headerlink" href="#ubungsaufgaben" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rehersal_exercises</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>
+
+        <span class="c1">// 1. Test</span>
+
+        <span class="c1">// MEDIAN von 3 Zahlen</span>
+        <span class="kt">int</span> <span class="n">med</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">((</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span> <span class="o">&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span> <span class="o">&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="o">))</span> <span class="n">med</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">((</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="o">))</span> <span class="n">med</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">((</span><span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">))</span> <span class="n">med</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Median -----&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Input:  a = &quot;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">&quot;, b = &quot;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">&quot;, c = &quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Median: &quot;</span> <span class="o">+</span> <span class="n">med</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+
+
+        <span class="c1">// Dreieck</span>
+        <span class="kt">double</span> <span class="n">seiteA</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">seiteB</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">toRadians</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">Area</span> <span class="o">=</span> <span class="o">(</span><span class="mi">1</span><span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="n">d</span><span class="o">)</span> <span class="o">*</span> <span class="n">seiteA</span> <span class="o">*</span> <span class="n">seiteB</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">sin</span><span class="o">(</span><span class="n">gamma</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Dreiecks Berechnung ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Input: a = %.0f, b = %.0f, Winkel Gamma (rad / degree) = %.2f / %d%n&quot;</span><span class="o">,</span> <span class="n">seiteA</span><span class="o">,</span> <span class="n">seiteB</span><span class="o">,</span> <span class="n">gamma</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Output: Fläche = %.02f Sin Gamma %f %n%n&quot;</span><span class="o">,</span> <span class="n">Area</span><span class="o">,</span> <span class="n">Math</span><span class="o">.</span><span class="na">sin</span><span class="o">(</span><span class="n">gamma</span><span class="o">));</span>
+
+
+        <span class="c1">// Parallelschaltung von Widerständen</span>
+        <span class="kt">double</span> <span class="n">R1</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">R2</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">Rp</span> <span class="o">=</span> <span class="o">(</span><span class="n">R1</span> <span class="o">*</span> <span class="n">R2</span><span class="o">)</span> <span class="o">/</span> <span class="o">(</span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Wiederstand ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;R1: %.3f, R2: %.3f, Rp: %.3f%n%n&quot;</span><span class="o">,</span> <span class="n">R1</span><span class="o">,</span> <span class="n">R2</span><span class="o">,</span> <span class="n">Rp</span><span class="o">);</span>
+
+
+        <span class="c1">// Kreissektor und -abschnitt</span>
+        <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">toRadians</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">SectorArea</span> <span class="o">=</span> <span class="o">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="n">d</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">SegmentLength</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="mi">2</span><span class="n">d</span> <span class="o">*</span> <span class="o">(</span><span class="n">alpha</span> <span class="o">-</span> <span class="n">Math</span><span class="o">.</span><span class="na">sin</span><span class="o">(</span><span class="n">alpha</span><span class="o">));</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Kreissektor und Kreissegment ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Input:  Radius: %.0f, alpha (rad / deg): %.02f / %.02f%n&quot;</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">alpha</span><span class="o">,</span> <span class="n">Math</span><span class="o">.</span><span class="na">toDegrees</span><span class="o">(</span><span class="n">alpha</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Output: Kreissektor Fläche: %.03f, Kreissegment Länge: %.03f%n%n&quot;</span><span class="o">,</span> <span class="n">SectorArea</span><span class="o">,</span> <span class="n">SegmentLength</span><span class="o">);</span>
+
+        <span class="c1">// Tetraederberechnung</span>
+        <span class="kt">double</span> <span class="n">TetraderVol</span> <span class="o">=</span> <span class="o">(</span><span class="n">seiteA</span> <span class="o">*</span> <span class="n">seiteA</span> <span class="o">*</span> <span class="n">seiteA</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="o">/</span> <span class="mi">12</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">TetraderArea</span> <span class="o">=</span> <span class="n">seiteA</span> <span class="o">*</span> <span class="n">seiteA</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Tetrader Berechnung ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Input:  Seite: %.0f%n&quot;</span><span class="o">,</span> <span class="n">seiteA</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Output: Tetraeder Volumen: %.03f, Tetraeder Oberfläche: %.03f%n%n&quot;</span><span class="o">,</span> <span class="n">TetraderVol</span><span class="o">,</span> <span class="n">TetraderArea</span><span class="o">);</span>
+
+        <span class="c1">// Freier Fall</span>
+        <span class="kt">double</span> <span class="n">hoehe</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.80665</span><span class="o">;</span> <span class="c1">// m / s²</span>
+        <span class="kt">double</span> <span class="n">impactVelocity</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">hoehe</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">fallTime</span> <span class="o">=</span> <span class="n">impactVelocity</span> <span class="o">/</span> <span class="n">hoehe</span><span class="o">;</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Freier Fall ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Input:  Fallhöhe: %.0f%n&quot;</span><span class="o">,</span> <span class="n">hoehe</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Output: Aufprallgeschwindigkeit: %.03f (m/s²), Fallzeit: %.03f (s)%n%n&quot;</span><span class="o">,</span> <span class="n">impactVelocity</span><span class="o">,</span> <span class="n">fallTime</span><span class="o">);</span>
+
+        <span class="c1">// Fabonacci Nummern</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">f0</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">f1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Fabonacci nummern ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Input: , n = &quot;</span> <span class="o">+</span> <span class="n">n</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Fabonacci nummern: &quot;</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">f0</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">)</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">f1</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="kt">long</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">+</span> <span class="n">f1</span><span class="o">;</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">fp</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
+                <span class="n">f0</span> <span class="o">=</span> <span class="n">f1</span><span class="o">;</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="n">fp</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">);</span>
+
+        <span class="c1">// Zweierpotenzen</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">result</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Zweierpotenzen ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Input: x = &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Zweierpotenzen :&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+
+        <span class="c1">// römische Zahl in Dezimalzahl</span>
+        <span class="kt">int</span> <span class="n">inputArab</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">arab1000</span> <span class="o">=</span> <span class="n">inputArab</span> <span class="o">/</span> <span class="mi">1000</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">arab100</span> <span class="o">=</span> <span class="n">inputArab</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">arab10</span> <span class="o">=</span> <span class="n">inputArab</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">arab1</span> <span class="o">=</span> <span class="n">inputArab</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;Fehler&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;Fehler&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;Fehler&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">Rom1000</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">arab1000</span><span class="o">]).</span><span class="na">replace</span><span class="o">(</span><span class="s">&quot;\0&quot;</span><span class="o">,</span> <span class="s">&quot;M&quot;</span><span class="o">);</span>
+
+        <span class="k">switch</span> <span class="o">(</span><span class="n">arab1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;I&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;II&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;III&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;IV&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;V&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;VI&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;VII&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">8</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;VIII&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;IX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                <span class="n">Rom1</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">switch</span> <span class="o">(</span><span class="n">arab10</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;X&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;XX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;XXX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;XL&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;L&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;LX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;LXX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">8</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;LXXX&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;XC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                <span class="n">Rom10</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">switch</span> <span class="o">(</span><span class="n">arab100</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;C&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;CC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;CCC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;CD&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;D&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;DC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;DCC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">8</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;DCCC&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;CM&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                <span class="n">Rom100</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Römische Zahlen ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Input arabisch : &quot;</span> <span class="o">+</span> <span class="n">arab1000</span> <span class="o">+</span> <span class="s">&quot; + &quot;</span> <span class="o">+</span> <span class="n">arab100</span> <span class="o">+</span> <span class="s">&quot; + &quot;</span> <span class="o">+</span> <span class="n">arab10</span> <span class="o">+</span> <span class="s">&quot; + &quot;</span> <span class="o">+</span> <span class="n">arab1</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">inputArab</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Output römisch :&quot;</span> <span class="o">+</span> <span class="n">Rom1000</span> <span class="o">+</span> <span class="n">Rom100</span> <span class="o">+</span> <span class="n">Rom10</span> <span class="o">+</span> <span class="n">Rom1</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+
+
+        <span class="c1">// 2. Test</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmt und die Länge</span>
+<span class="cm">        der längsten ununterbrochenen Folge von Ziffern als Ergebnis zurückgibt. (ohne Regex)</span>
+<span class="cm">        */</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- String Manipulation ----- &quot;</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="o">(</span><span class="s">&quot;A-Ä-Ö-Ü a-e-ö-ü hallo 12 hnjkj54 n324 ä 2n5 ö Ä Üöä23 3252l 5 235 jjnljh 5t252p 12345678 &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+
+
+        <span class="kt">int</span> <span class="n">sequenceLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxSequenceLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;</span> <span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sequenceLength</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">maxSequenceLength</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxSequenceLength</span><span class="o">,</span> <span class="n">sequenceLength</span><span class="o">);</span>
+                <span class="n">sequenceLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Länge längste zusammenhängende Ziffernfolge: &quot;</span> <span class="o">+</span> <span class="n">maxSequenceLength</span><span class="o">);</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        Umlaute ersetzen</span>
+<span class="cm">        Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmt und alle</span>
+<span class="cm">        Umlaute durch &quot;AE&quot;, &quot;OE&quot;, &quot;UE&quot;, &quot;ae&quot;, &quot;ou&quot;, &quot;ue&quot; ersetzt.</span>
+<span class="cm">        */</span>
+
+        <span class="n">StringBuilder</span> <span class="n">textUl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">textUl</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;ä&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;ae&quot;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;Ä&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;Ae&quot;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;ö&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;oe&quot;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;Ö&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;Oe&quot;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;ü&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;ue&quot;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">textUl</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;Ü&#39;</span><span class="o">)</span> <span class="n">textUl</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;Ue&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Umlaute ersetzt: &quot;</span> <span class="o">+</span> <span class="n">textUl</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        Differenzen</span>
+<span class="cm">        Schreiben Sie ein Java-Programm, welches eine beliebige Anzahl von ganzen Zahlen als</span>
+<span class="cm">        Kommandozeilenparameter entgegennimmt und folgende Aufgabe löst:</span>
+<span class="cm">        • Das Programm soll alle möglichen Differenzen bilden (nur Absolutwerte) und aufsteigend</span>
+<span class="cm">        sortiert ausgeben.</span>
+<span class="cm">        • Verbesserung: Jede auftretende Differenz soll nur ein Mal ausgegeben werden.</span>
+<span class="cm">        */</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Differenzen ----- &quot;</span><span class="o">);</span> <span class="c1">//todo</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">inputNumbers</span> <span class="o">=</span> <span class="o">{</span><span class="mi">33</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">32</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">77</span><span class="o">};</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">differences</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[(</span><span class="n">inputNumbers</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">*</span> <span class="mi">4</span><span class="o">];</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Emtpy Array ----- &quot;</span> <span class="o">+</span> <span class="n">inputNumbers</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">element</span> <span class="o">:</span> <span class="n">differences</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- ----- &quot;</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">unique_elements_count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">u</span> <span class="o">&lt;</span> <span class="n">inputNumbers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">u</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">inputNumbers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">v</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="kt">double</span> <span class="n">diffValue</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">inputNumbers</span><span class="o">[</span><span class="n">u</span><span class="o">]</span> <span class="o">-</span> <span class="n">inputNumbers</span><span class="o">[</span><span class="n">v</span><span class="o">]);</span>
+
+                <span class="kt">boolean</span> <span class="n">firstOccurence</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+                <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">element</span> <span class="o">:</span> <span class="n">differences</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">element</span> <span class="o">==</span> <span class="n">diffValue</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">firstOccurence</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+
+                <span class="k">if</span> <span class="o">(</span><span class="n">firstOccurence</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">differences</span><span class="o">[</span><span class="n">unique_elements_count</span><span class="o">]</span> <span class="o">=</span> <span class="n">diffValue</span><span class="o">;</span>
+                    <span class="n">unique_elements_count</span><span class="o">++;</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Value: &quot;</span> <span class="o">+</span> <span class="n">diffValue</span> <span class="o">+</span> <span class="s">&quot; Position: &quot;</span> <span class="o">+</span> <span class="n">unique_elements_count</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Filled Array ----- &quot;</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">element</span> <span class="o">:</span> <span class="n">differences</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- ----- &quot;</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">unique_elements_count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">l</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">differences</span><span class="o">[</span><span class="n">l</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">differences</span><span class="o">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">unique_elements_count</span><span class="o">))</span> <span class="o">{</span>
+                <span class="kt">double</span> <span class="n">tmp_element</span> <span class="o">=</span> <span class="n">differences</span><span class="o">[</span><span class="n">l</span><span class="o">];</span>
+                <span class="n">differences</span><span class="o">[</span><span class="n">l</span><span class="o">]</span> <span class="o">=</span> <span class="n">differences</span><span class="o">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="n">differences</span><span class="o">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp_element</span><span class="o">;</span>
+                <span class="n">l</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Sorted Array ----- &quot;</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">unique_elements_count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">differences</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- ----- &quot;</span><span class="o">);</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        Geben Sie eine Methode an, welche einen String als Parameter entgegennimmt und als Ergebnis true liefert,</span>
+<span class="cm">        wenn folgende Bedingungen erfüllt sind, sonst false.</span>
+<span class="cm">        Bedingungen:</span>
+<span class="cm">            1. Im String dürfen nur Ziffern enthalten sein.</span>
+<span class="cm">            2. Jede enthaltene Ziffer darf nur ein Mal vorkommen.</span>
+<span class="cm">        */</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Ziffernstring</span><span class="o">(</span><span class="s">&quot;01a&quot;</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="sc">&#39;1&#39;</span> <span class="o">+</span> <span class="mi">2</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="s">&quot;1&quot;</span> <span class="o">+</span> <span class="mi">2</span><span class="o">));</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        Schreiben Sie eine statische Methode zur Umwandlung von römischen Zahlen in Dezimalzahlen.</span>
+<span class="cm">        Die Methode soll einen String-Parameter mit der römischen Zahl erhalten und als Ergebnis die</span>
+<span class="cm">        äquivalente arabische Zahl zurückgeben.</span>
+<span class="cm">        */</span>
+
+        <span class="n">String</span> <span class="n">roman</span> <span class="o">=</span> <span class="o">(</span><span class="s">&quot;MCMLXXXIV&quot;</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;----- Römische Zahlen -&gt; Dezimalzahlen ----- &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Input römisch : &quot;</span> <span class="o">+</span> <span class="n">roman</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Output arabisch :&quot;</span> <span class="o">+</span> <span class="n">romanToArabic</span><span class="o">(</span><span class="n">roman</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">Ziffernstring</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">Ziffern</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">character</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">character</span> <span class="o">&lt;</span> <span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">character</span> <span class="o">&gt;</span> <span class="sc">&#39;9&#39;</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">character</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="o">;</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">character</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">Ziffern</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">Ziffern</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">romanToArabic</span><span class="o">(</span><span class="n">String</span> <span class="n">roman</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">decimalValue</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">roman</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">currentDigit</span> <span class="o">=</span> <span class="n">roman</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="kt">char</span> <span class="n">nextDigit</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">roman</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">nextDigit</span> <span class="o">=</span> <span class="n">roman</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">nextDigit</span> <span class="o">=</span> <span class="n">currentDigit</span><span class="o">;</span>  <span class="c1">// a bit ugly but works</span>
+            <span class="o">}</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">romanDigitValue</span><span class="o">(</span><span class="n">currentDigit</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">romanDigitValue</span><span class="o">(</span><span class="n">nextDigit</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">decimalValue</span> <span class="o">+=</span> <span class="n">romanDigitValue</span><span class="o">(</span><span class="n">currentDigit</span><span class="o">)</span> <span class="o">*</span> <span class="n">sign</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">decimalValue</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">romanDigitValue</span><span class="o">(</span><span class="kt">char</span> <span class="n">romanDigit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">digitValue</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;I&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;V&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;X&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;L&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">50</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;C&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">100</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;D&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">500</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">romanDigit</span> <span class="o">==</span> <span class="sc">&#39;M&#39;</span><span class="o">)</span> <span class="n">digitValue</span> <span class="o">+=</span> <span class="mi">1000</span><span class="o">;</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="n">digitValue</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="implgis.html" class="btn btn-neutral float-right" title="IMPLGIS - Notes">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pct_diary.html" class="btn btn-neutral" title="2015-04-27 Project start"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Stefan Fleck.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
