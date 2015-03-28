@@ -1,5 +1,5 @@
-Programmieren 1 (Java)
-######################
+Einführung in das Programmieren (Java)
+######################################
 
 
 Notizen

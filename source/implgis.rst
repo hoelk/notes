@@ -17,7 +17,7 @@ Data Structures
 * Concatenated list -> entries stored arbitrarily, with pointer to the next entry
     * more efficient to insert new entry
 
-Algorythms
+Algorithms
 ==========
 
 Complexity

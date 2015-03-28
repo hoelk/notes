@@ -12,14 +12,13 @@ Contents:
    :maxdepth: 2
 
    cartoinfo
-   cartoinfo_assignments
+   cartoinfo_ex
    pct
    pct_diary
    eprog
-   implgis
-   geopython
-   algorythms_intro
+   geoalg
    stats
+   implgis 
    linux
    python
    sql
