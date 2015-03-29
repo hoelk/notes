@@ -59,30 +59,32 @@ Create database user
 Create empty test table
 -----------------------
 
-..code-block:: psql
+.. code-block:: psql
 
-    CREATE TABLE test_set (
-      id       BIGSERIAL PRIMARY KEY, --in automatically incremented id is almost always a good idea
-      geom GEOMETRY --here comes the magic: this column if of type "geometry"
-    );
+        CREATE TABLE test_set (
+          id       BIGSERIAL PRIMARY KEY, --in automatically incremented id is almost always a good idea
+          geom GEOMETRY --here comes the magic: this column if of type "geometry"
+        );
 
-    INSERT INTO test_set (the_geom)
-    VALUES
-      (st_geomfromtext('LINESTRING(-46 -40, -4 -6, -5 -5, -6 -4, -8 -5, 50 30 )')),
-      (st_geomfromtext('LINESTRING(-3 -10, -10 -5, 17 3, 23 66)')),
-      (st_geomfromtext('LINESTRING(-20 20, -2 0, 15 -15, 65 -1)')),
-      (st_geomfromtext('LINESTRING(-50 -50, -47 46)')),
-      (st_geomfromtext('LINESTRING(70 70, 80 -40, 0 -50 )'));
+        INSERT INTO test_set (the_geom)
+        VALUES
+          (st_geomfromtext('LINESTRING(-46 -40, -4 -6, -5 -5, -6 -4, -8 -5, 50 30 )')),
+          (st_geomfromtext('LINESTRING(-3 -10, -10 -5, 17 3, 23 66)')),
+          (st_geomfromtext('LINESTRING(-20 20, -2 0, 15 -15, 65 -1)')),
+          (st_geomfromtext('LINESTRING(-50 -50, -47 46)')),
+          (st_geomfromtext('LINESTRING(70 70, 80 -40, 0 -50 )'));
 
-    INSERT INTO test_set (geom)
-    VALUES
-      (st_geomfromtext('POLYGON((2.40309828723774 1.4684052885979,2.78140531783743 1.1025017671982,3.03567725643723 1.50561581619787,3.03567725643723 1.50561581619787,2.40309828723774 1.4684052885979))')),
+        INSERT INTO test_set (geom)
+        VALUES
+          (st_geomfromtext('POLYGON((2.40309828723774 1.4684052885979,2.78140531783743 1.1025017671982,3.03567725643723 1.50561581619787,3.03567725643723 1.50561581619787,2.40309828723774 1.4684052885979))')),
 
 Functions
 =========
 
 Convert spatial data to sql script (PLPYTHON)
 ---------------------------------------------
+
+Output coordinates are WGS84 (SRID 4326)
 
 .. code-block:: psql
 
@@ -136,8 +138,11 @@ Convert spatial data to sql script (PLPYTHON)
        $$
        LANGUAGE plpython3u;
 
-    select spatial_data_to_sql('test_set');
+Usage:
 
+.. code-block:: psql
+
+    SELECT spatial_data_to_sql('test_set');
 
 
 Handy commands
@@ -152,4 +157,7 @@ Handy commands
 .. code-block:: psql
 
     -- check size of data base
-    select pg_size_pretty(pg_database_size('akonadi'));
+    select pg_size_pretty(pg_database_size('akonadi'))
+
+    -- change owner of DB
+    ALTER table country owner to hoelk
