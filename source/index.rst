@@ -18,7 +18,8 @@ Contents:
    eprog
    geoalg
    stats
-   implgis 
+   implgis
+   implgis_ex
    linux
    python
    sql

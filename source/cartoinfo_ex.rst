@@ -1,5 +1,5 @@
-Cartographic Information Systems - Assignments
-##############################################
+CIS - Assignments
+#################
 
 Assignment 1 - Spatial Databases
 ================================
