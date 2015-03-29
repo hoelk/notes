@@ -133,3 +133,62 @@ area (in square kilometers)
     This has to be typecast  to ``numeric`` for ``round`` to work.
 *   ``st_contains`` checks if one geometry spatially containes another.
     This can be used as a join condition.
+
+Identify streets that intersect an arbitrary polygon
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. First I created a new empty table
+
+    .. code-block:: psql
+
+        CREATE TABLE test_set (
+          id   BIGSERIAL PRIMARY KEY,
+          geom GEOMETRY
+        );
+
+2.  Into this table I digitized a triangle in QGIS. I did not tell QGIS to use
+    the CRS of the NYC data, because I wanted to showcase coordinate transformation
+    in PostGIS. For this I first querried the SRID of the CRS of
+    ``nyc_neighborhoods``:
+
+.. code-block:: psql
+
+    select distinct ST_SRID(geom) FROM nyc_neighborhoods;
+
+    /* Output:
+    st_srid
+    ---------
+      26918
+    /*
+
+Using this information I could now transform the triangle from
+WGS 84 (SRID 4326) to the CRS of the NYC data:
+
+.. code-block:: psql
+
+    SELECT ST_ASTEXT(ST_Transform(ST_SetSRID(geom,4326),26918))
+    FROM test_set
+
+And finaly query which streets intersect the triangle:
+
+.. code-block:: psql
+
+    SELECT name
+    FROM nyc_streets
+    WHERE st_intersects(
+            nyc_streets.geom,
+            st_setsrid(st_geomfromtext('
+                            POLYGON((591056.609774371 4505117.5172705,591063.751926372
+                                4504014.8954651,592053.281732043 4504790.79481248,
+                                591056.609774371 4505117.5172705))'),
+                            26918)
+                        );
+
+.. image:: _static/img/cartoinfo/ex1_triangle.png
+    :align: center
+
+*   I could have directly used the ``geom`` from ``test_set`` for the intersect,
+    but I wanted to demonstrated the use of ``st_geomfromtext`` as by the
+    assignment instructions.
+*   ``st_intersects`` checks whether two geometries intersect and returns
+    TRUE / FALSE.
