@@ -5,7 +5,6 @@ https://en.wikipedia.org/wiki/User:Hoelk/Books/Data_Structures_and_Algorithms
 
 https://www.youtube.com/watch?v=HtSuA80QTyo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb
 
-
 http://en.wikibooks.org/wiki/Algorithms
 http://en.wikibooks.org/wiki/Data_Structures
 
