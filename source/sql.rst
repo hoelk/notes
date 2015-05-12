@@ -1,6 +1,8 @@
 Postgresql & PostGIS
-====================
+####################
 
+Database Management
+===================
 
 Create database user
 -------------------
@@ -54,6 +56,10 @@ Create database user
 
       -- change password for user
       template1=# ALTER USER tom WITH PASSWORD 'blubb'
+
+      -- change owener of table
+      alter table travels owner to hoelk;
+
 
 
 Create empty test table
@@ -161,3 +167,27 @@ Handy commands
 
     -- change owner of DB
     ALTER table country owner to hoelk
+
+SQL Support in R
+================
+
+.. code-block:: R
+
+    library(RPostgreSQL)    # SQL Driver
+    library(sqldf)          # Send SQL from R
+    library(rgdal)          # For postgis layers
+
+    # Read tables via RPostgreSQL and sqldf
+    options(sqldf.RPostgreSQL.user ="lbs",
+      sqldf.RPostgreSQL.password ="lbs",
+      sqldf.RPostgreSQL.dbname ="lbs",
+      sqldf.RPostgreSQL.host ="localhost")
+
+    travels <- sqldf("select * from travels")
+    travels_motionpatterns <- sqldf("select * from travels_motionpatterns")
+
+    # Read spatial data via rgdal
+    dsn="PG:dbname='lbs' host='localhost' user='lbs' password='lbs'"
+    ogrListLayers(dsn)
+
+    waysegment_gip_at_14_06_20140807 <- readOGR(dsn, "waysegment_gip_at_14_06_20140807")

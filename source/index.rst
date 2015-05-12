@@ -11,19 +11,18 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   eprog
+   python
+   javascript
+   sql
    cartoinfo
    cartoinfo_ex
-   pct
-   pct_diary
-   eprog
+   pct_ex
    geoalg
    stats
    implgis
    implgis_ex
    linux
-   python
-   sql
-   javascript
    sphinx
 
 

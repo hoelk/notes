@@ -23,3 +23,19 @@ Install geoserver
 =================
 
 https://gist.github.com/akkerman/6834282
+
+Login into web admin
+--------------------
+
+http://docs.geoserver.org/stable/en/user/gettingstarted/web-admin-quickstart/index.html
+
+Importing data
+--------------
+
+http://docs.geoserver.org/stable/en/user/gettingstarted/shapefile-quickstart/index.html
+
+
+Get capabilities
+----------------
+
+http://docs.geoserver.org/2.6.x/en/user/services/wms/reference.html

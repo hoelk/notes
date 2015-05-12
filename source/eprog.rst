@@ -1,9 +1,40 @@
-Einführung in das Programmieren (Java)
-######################################
+Java (EPROG)
+############
 
-
-Notizen
+Notes
 =======
+
+
+Error handling
+==============
+
+Pre- and Postconditions
+-----------------------
+
+A method accepts arguments and returns a return value
+
+Preconditions: Valid ranges of input arguments (use exceptions)
+Postconditions: Valid ranges of output arguments (use assertions)
+
+Asstertions
+-----------
+
+* DO: test for situations that *cannot happen* according to programm logic
+* DON'T test for invalidüser inputm
+
+
+.. code-block:: java
+
+    asster gcd > 0: "GCD is positive"
+
+.. code-block:: bash
+
+    java -ea TestAssertion # enable assertions
+    java -da TestAssertion # disable assertions (default)
+
+
+Reference Tables
+----------------
 
 .. _primitve-data-types:
 
@@ -15,7 +46,7 @@ Einfache / Primitive Datentypen in Java:
 +============+==================+=======================+==================================+===================================================+
 | boolean    | JVM-Spezifisch   | java.lang.Boolean     | true / false                     | Boolescher Wahrheitswert                          |
 +------------+------------------+-----------------------+----------------------------------+---------------------------------------------------+
-| char       | 16 bit           | java.lang.Character   | 0 … 65.535 (z. B. ‘A’)           | Unicode-Zeichen (UTF-16)                          |
+| char       | 16 bit           | java.lang.Character   | 0 … 65.535 (z. B. ‘A’)           |ünicode-Zeichen (UTF-16)                          |
 +------------+------------------+-----------------------+----------------------------------+---------------------------------------------------+
 | byte       | 8 bit            | java.lang.Byte        | -128 … 127                       | Zweierkomplement-Wert                             |
 +------------+------------------+-----------------------+----------------------------------+---------------------------------------------------+
@@ -35,8 +66,295 @@ Einfache / Primitive Datentypen in Java:
 
 `Quelle <http://de.wikibooks.org/wiki/Java_Standard:_Primitive_Datentypen>`_
 
+
+
 Testfragen
 ===========
+
+2. Semester
+-----------
+
+Welchen Zweck haben Packages in Java?
+
+    Organisationseinheit für zusammenhängende Klassen.
+    Hilft auch beim verhindern von Namenskonflikten. Mehre Klassen mit
+    selbem Namen innerhalb eines Packages sind nicht möglich, allerdings
+    können verschiedene Packages Klassen des selben Namens haben.
+
+Wie können Packages von der JVM gefunden werden?
+
+    Dieümgebungsvariable CLASSPATH legt fest wo Java nach Packages sucht.
+    Alle Bytecodedatein eines Packages müssen in einem Verzeichnis liegen.
+    Die Datein etwaiger Subpackages liegen inünterverzeichnissen.
+
+Wieviele Verzeichnisse kann dieümgebungsvariable CLASSPATH enthalten?
+
+    Belibeig viele
+
+Gibt es Klassen im JDK, die auch ohne import-Klausel zur verfügung stehen?
+
+    * Man kann statt zu importieren den ganzen Pfad der Klasse angeben
+    * Java.lang wird automatisch importiert
+
+Was versteht manünter einem qualifizierten Namen?
+
+    Eindeutiger name einer klasse/methode/variable/etc.. incl. dem
+    package name
+
+Was ist derünterschied zwischen importünd static import?
+
+    import static importiert felderünd methoden die als public static
+    definiert sind. Sonnst muss man den qualifizierten namen verwenden
+    (Zb Math.PI mit import, PI mit import static)
+
+Was besagt eine sogenannte package-Klausel?
+
+    * Teilt einer Quelltextdatei mit zu welchem package sie gehört
+
+Was passiert, wenn in einer Quelltextdatei keine package-Klausel existiert?
+
+    * Dann gehört sie zum default-packageünd kann von anderen packages
+    nicht importiert werdne
+
+Wie können Namenskonflikte im Zusammnhang mit Packages aufgelöst werden?
+
+    * Angabe des qualifizierten names
+
+Kann ein Java-Archiv (jar-file) mehrere Packages enthalten?
+
+    * Nein, allerdings kann sie sub-packages enthalten.
+
+Kann ein Java-Archiv neben class-Dateien noch andere Dateien enthalten?
+
+    * Es gibt noch die MAINFEST.MF metainformations datei.
+
+Gibt es Dateien, die in jedem jar-file vorhanden sein müssen?
+
+    * Manifest.MF
+
+Was ist der Vorteil von jar-files?
+
+    * Ganzes Package in einer Datei
+    * Weniger platzbedarf (komprimierung)
+    * Digitale Signierung möglich (zb bei Android)
+
+Wie können Sie sich Zugang zu einem jar-Archiv verschaffen, wenn Sie das Programm jar nicht zur
+Verfügung haben?
+
+    * Kann mit jedem zipünpacker entpackt werden
+
+Wozu dienen Interfaces?
+
+    * Trennen schnittstelleünd Implementierung
+    * Schnittstelleöffentlich, implementierung nicht
+
+Kann ein Interface Methoden enthalten?
+
+    * Nein (Bzw nur deren Köpfe)
+
+Kann ein Interface Daten enthalten?
+
+    * Ja (im sinne von konstanten)
+
+Was versteht manünter dem Begriff Design by Contract?
+
+    * Definition von pre-ünd postconditions für eine methode
+
+Kann ein Interface private Methoden enthalten?
+
+    * Nein
+    * Kann köpfe von public methoden enthalten, aber nicht private
+
+Wieviele Interfaces kann eine Klasse implementieren?
+
+    * Beliebig viele
+
+Können von einem Interface Variablen definiert werden?
+
+    * Ja, nur lokale variablen
+
+Wie kann man ein Interface-Objekt erzeugen?
+
+    * Garnicht, müssen einer klasse zugweisen werden
+
+Was versteht manünter dynamischem Binden?
+
+    * Richtige methode wird vom aktuell zugewiesen Objekt festgelegt
+    * Methodenwahl also erst zur Laufzeit möglich
+
+Beschreiben Sie denünterschied zwischen statischemünd dynamischem Typ.
+
+    * Variable ist bei komplierung mit einem fixen typ definiert
+    * Der Variable wird erst zur laufzeit ein Objekt eines bestimten
+    types zugwiesen
+
+Muss eine Klasse auch nicht benötigte Methoden eines Interfaces implementieren?
+
+    * Ja, alle
+
+Gibt es einenünterschied, ob eine Variable vom Interface-Typ ist
+oder vom konkreten Typ?
+
+    * Ja, bei einem interface typ kann es sein dass mehr Methoden
+    existieren
+
+
+Welchen Vorteil hat es, wenn der Copy-Konstruktor einer Klasse einen Interface-Typ-Parameter hat?
+
+    * Sie sind flexibler anwendbar
+    * Jede beliebige immplementierende klasse kann übergeben werden
+
+.. code-block:: java
+
+        class Name implements Interface {
+          Name (Interface Variable) {
+            a = Variable.a
+         }  }
+
+
+Was versteht manünter einer Superklasse?
+
+    * Überklasse, von welcher eine andere Klasse abgeleitet ist
+
+Welche Arten der Vererbung kennen Sie und was ist derünterschied?
+
+    * Interfaces: Fixieren gemeinsame eigenschaften mehrer
+    Klassen
+
+    * Vererbung konkreter Klassen: Eine Klasse wird von
+    einer anderen Abgeleitet, dh sie hat alle Eigenschaften
+    der Basisklasse, kann aber noch erweitert werden.
+
+Welche Abhilfe gibt es, wenn eine Methode unbrauchbar
+für die abgeleitete Klasse ist?
+
+    * Ererbte Methoden können redefiniert werden
+    * Einschraenkung:
+        * Name und Parameterliste müssen übereinstimmen.
+        * Zugriffsschutz: darf gelockert werden aber nicht eingeschränkt.
+        * Ergebnistyp: Statt der Basisklasse darf die abgeleitete Klasse verwendet werden.
+        Für den Methodenrumpf gelten keine Einschränkungen.
+
+Was bedeutet der Zugriffsschutz-Modifier protected?
+
+    * Zugriff nur für abgeleitete Klassen (und die Klasse selbst) erlaubt
+
+Kann eine Klasse in Java von mehreren Basisklassen abgeleitet sein?
+
+    * Nein
+
+Kann eine Klasse in Java mehrere Interfaces Implementieren?
+
+    * Ja
+
+Nennen Sie eine Methode, die immer geerbt ist?
+
+    * Erbt immer vom der Objekt klase: toString, equals(Object x), getClass
+
+Was hat es mit der Klasse Object auf sich?
+
+    * s.o.
+
+Wie kann ein Konstruktor einer Basisklasse in der abgeleiteten
+Klasse verwendet werden?
+
+    * mit super()
+
+Wie können Programmabstürze verhindert werden?
+
+    * Auffangen von Exceptions
+
+Was können Ausnahmezustände sein?
+
+    * Zugriff auf nicht vorhandene Datei, Zugriff auf nicht vorhandenes
+    array element, etc..
+
+Wie kann auf einen Ausnahmezustand im Programm reagiert werden?
+
+    * Mit try-catch-finally konstrukten
+
+Wie kann ein Fehlerzustand an die aufrufende Einheit einer Methode
+weitergeleitet werden?
+
+    * Via throws klausel im methodenkopf
+
+Was versteht man unter Auffangen einer Exception?
+
+    * Behandeln einer exception mittels catch(eception). Hier kann
+    festgelegt werden wie mit so einen Ausnahmezustand umgegangen werden
+    soll
+
+Was passiert, wenn im try-Block eines Programms eine Exception auftritt?
+
+    * Try block wird abgebrochen, das dazugehörige catch wird ausgefuert
+
+Was passiert, wenn eine Exception in einer Methode nicht behandelt wird?
+
+    * Muss weitergegeben werden an die aufrufenden methode, sonnst
+    kompiliert nicht
+
+Wie kann ein Programmierer erkennen, ob in einer Funktion Exceptions
+auftreten können?
+
+    * Durch Exceptionsignatur nach dem Methodenkopf
+    (returntyp methodenname (parameterliste) throws exceptiontyp1…)
+    und Dokumentation @throw exceptiontyp Text
+
+Was versteht manünter einer Exception-Signatur?
+
+    * returntyp methodenname (parameterliste) *throws exceptiontyp1…*
+
+Was versteht manünter einer Methdoden-Signatur?
+
+    * Methodenname + Übergabeparameter (methodenname(Parameter))
+
+Was ist derünterschied zwischen überladen und überschreiben (redefinieren) einer Methode?
+
+    * Überladene Methoden: mehrere Methoden mit gleichen Namen aber unterschiedlichen Parametern
+    * Redefinieren: neue implementierung einer geerbten Methode,
+
+Was bedeuten die reservierten Wörter final und finally in Java?
+
+    * Final: schlussendliche Wert einer Variable, kann nicht mehr verändert werden
+    * finally: Block, nach den try- und catchBlöcken, der am Ende des Programms noch immer ausgeführt wird, egal ob Exception oder nicht.
+
+Ist es in Java möglich eigene Exceptions zu definieren?
+
+    * Ja
+
+    .. code-block:: java
+
+        class Exceptionname extends Exception {
+            Exceptionname () {  }
+            Exceptionname (String message) {  super(message) ;  }
+        }
+
+Was versteht manünter Exception-Chaining?
+
+    * Methode fängt Exception auf und gibt stattdessen eine andere Exception weiter.
+
+Zeichnen Sie ein einfaches Beispiel für ein Klassendiagramm in UML auf.
+Wie wird eine Vererbungsbeziehung im Klassendiagramm dargestellt?
+Wie kann man in einem Klassendiagramm den Zugriffsschutz erkennen?
+Erklären Sie direkteünd indirekte Rekursion.
+
+    * Direkte Rekursion: Methode ruft sich selbst immer wieder auf
+    * indirekte Rekursion: Methoden rufen sich wechselseitig immer wieder auf
+
+Was ist der entscheidende Punkt bei einer rekursiven Methode, damit es nicht zu einerünendlichen
+Aufruffolge kommt?
+
+    * Das problem muss immer kleiner werden und irgendwann ohne rekursion
+    loesbar sein
+
+Kann es in einem funktionierenden Programm zu einem Stack-Uberlauf kommen?
+
+    * Das programm muss immer kleiner werden, nicht immmer groesser
+
+Was wird auf dem Programm-Stack abgelegt?
+
+    * Parameter und lokale Variablen (Last in, First out)
+
 
 1. Semester
 -----------
@@ -48,7 +366,7 @@ In welcher Datei steht der Bytecode der Klasse „Motorfahrzeug“?
 
   Motorfahrzeug.class
 
-Was ist Voraussetzung um einer Variablen Werte eines anderen Datentyps zuweisen zu können?
+Was ist Voraussetzungüm einer Variablen Werte eines anderen Datentyps zuweisen zu können?
 
   Typenkonversation
   * Implizit: Wird automatisch gemacht
@@ -69,15 +387,15 @@ Welche der folgenden Datentypen sind primitive Datentypen in Java
 
 Was ist Polymorphie?
 
-  Eine Methode ist polymorph wenn sie unterschiedliche Datentypen annimmt.
+  Eine Methode ist polymorph wenn sieünterschiedliche Datentypen annimmt.
 
-  * Beispiel: Der ``+`` Opperator ist akzeptiert ``int`` und ``double`` Werte.
+  * Beispiel: Der ``+`` Opperator ist akzeptiert ``int``ünd ``double`` Werte.
 
 Hat eine Anweisung einen Typ?
 
   Nein, eine Anweisung kann aber einem Ausdruck einen Wert zuweisen
 
-Was macht ein Typecast und wie ist die Syntax?
+Was macht ein Typecastünd wie ist die Syntax?
 
   Konvertiert einen Ausdruck von einem Datentyp in einem anderen.
 
@@ -88,7 +406,7 @@ Wie ruft man den Java-Compiler auf der Kommandozeile auf?
 
   ``javac Klassenname.java``
 
-Was ist der Unterschied zwischen int und double?
+Was ist derünterschied zwischen intünd double?
 
   * int: ganze Zahlen
   * double: Gleitkommazahlen
@@ -103,9 +421,9 @@ Kommt die folgende Schleife zu einem Ende? Begründung?
   ``for(int j=1; j!=0; j++) ;``
 
   Ja, wegen wrap around. Sobald der der Wert für j den maximalen integer wert
-  ``231 - 1`` übersteigt fängt er von ganz unten an ``-231``.
+  ``231 - 1`` übersteigt fängt er von ganzünten an ``-231``.
 
-  Anmerkung: ``double`` überlauf wrapt nicht sonder liefert +/- Unendlich.
+  Anmerkung: ``double`` überlauf wrapt nicht sonder liefert +/-ünendlich.
 
 Wie startet man ein Java-Programm?
 
@@ -121,11 +439,11 @@ Wie heißt die Datei, in welcher der Quelltext der Klasse „Motorfahrzeug“ st
 
   ``Motorfahrzeug.java``
 
-Was wird benötigt, um auf einem beliebigen Rechner ein Java-Programm ausführen zu können?
+Was wird benötigt,üm auf einem beliebigen Rechner ein Java-Programm ausführen zu können?
 
-  Ein JRE (Java Runtime Envirnment) und das Programm (.class Datei).
+  Ein JRE (Java Runtime Envirnment)ünd das Programm (.class Datei).
 
-Was brauchen Sie um Java-Quellcode zu erstellen?
+Was brauchen Sieüm Java-Quellcode zu erstellen?
 
   Einen text editor.
 
@@ -133,7 +451,7 @@ Wie erzeugt man ausgehend von der Datei „Test.java“ die Datei „Test.class�
 
   Kompilieren. ``javac Test.java``
 
-Was versteht man unter einem Syntaxfehler?
+Was versteht manünter einem Syntaxfehler?
 
   Angabe entspricht nicht der formalen Gramatik oder Rechtschreibung von Java
 
@@ -157,7 +475,7 @@ Muss jede Variable einen Datentyp haben?
 
 Kann man einer Variablen Werte von einem anderen Datentyp zuweisen?
 
-  Nein. Man kann aber unter umständen Datentypen konvertierten (typecasten). Dies
+  Nein. Man kann aberünterümständen Datentypen konvertierten (typecasten). Dies
   kann auch autamtisch passieren.
   Z.b. Wenn man versucht einer ``double`` Variablen einen ``integer`` wert
   zuzuweisen, wird dieser automatisch nach ``double`` konvertiert.
@@ -166,14 +484,14 @@ Wenn man einen Datentyp A einer Variablen von einem anderen Datentyp B zuweisen 
 dann sagt man „A ist . . . . . . . . . zu B“.
 
   kompatibel (implizite Typenkonversation wird durchgeführt)
-  (``integer`` ist kompatibel zu ``double``, aber nicht umgekehrt!)
+  (``integer`` ist kompatibel zu ``double``, aber nichtümgekehrt!)
 
-Was ist der Unterschied zwischen float und double?
+Was ist derünterschied zwischen floatünd double?
 
     * Beides sind datentypen für Gleitkommawerte
     * ``double`` stellt mehr Speicherplatz zur Verfügung, daher:
         * höhere Genauigkeit (``double`` steht für *Doppelte Genauigkeit*)
-        * höheres Max und tieferes Min als ``float``
+        * höheres Maxünd tieferes Min als ``float``
     * Siehe :ref:`primitve-data-types`
 
 
@@ -187,14 +505,14 @@ Welche der folgenden Namen sind gültige Bezeichner in Java?
   Regeln:
       * Der Name darf nicht mit einer Ziffer beginnen
       * Sonderzeichen wie : * ; + - / sind nicht nicht erlaubt
-      * Reservierte Wörter und Schlüsselwörter sind nicht erlaubt
+      * Reservierte Wörteründ Schlüsselwörter sind nicht erlaubt
 
-Was ist der Unterschied zwischen = und == ?
+Was ist derünterschied zwischen =ünd == ?
 
     * ``=``  ist eine Zuweisung (``a = 1`` weist der Variablen ``a`` den Wert ``1`` zu)
     * ``==`` ist ein Vergleich  (``1 == 1`` gibt aus ``true``)
 
-Welche Modifier kennen Sie und was ist Ihre Bedeutung?
+Welche Modifier kennen Sieünd was ist Ihre Bedeutung?
 
   Access Control Modifiers:
 
@@ -212,9 +530,9 @@ Welche Modifier kennen Sie und was ist Ihre Bedeutung?
       * ``static`` for creating class methods and variables
       * '``final`` modifier for finalizing the implementations of classes, methods, and variables. (können nicht mehr geändert werden)
       * ``abstract`` modifier for creating abstract classes and methods.
-      * ``synchronized`` and volatile modifiers, which are used for threads.
+      * ``synchronized`` and volatile modifiers, which areüsed for threads.
 
-Was ist der Unterscheid zwischen Ausdruck und Anweisung?
+Was ist derünterscheid zwischen Ausdruckünd Anweisung?
 
   Ein Ausdruck hat einen bestimmten Typ, er kann als Teil von anderen Ausdrucken
   verwendet werden.
@@ -252,14 +570,14 @@ Welche besonderen Werte kann eine double-Variable annehmen?
 
 Wann benötigt man einen Typecast?
 
-    * Implizite Typenkonversation geht nur, wenn ein niederwertiger Datentyp in einen höher wertigen Datentypen umgewandelt wird (``int`` -> ``double``)
+    * Implizite Typenkonversation geht nur, wenn ein niederwertiger Datentyp in einen höher wertigen Datentypenümgewandelt wird (``int`` -> ``double``)
     * explizite Typenkonversation mittels typecast funktioniert auch anders herum
 
 Kann man in Java eigene Typen definieren?
 
-    * Ja, allerdings nur Referenztypen und keine primitiven typen.
+    * Ja, allerdings nur Referenztypenünd keine primitiven typen.
 
-Was versteht man unter Initialisierung?
+Was versteht manünter Initialisierung?
 
     * Wertzuweisung, erfolgt nach der Dekleration (Spezifizierung des Datentyps)
     * Dekleration ``int i;``
@@ -288,19 +606,19 @@ Wie errechnet sich die Größe von Math.MAX_VALUE?
 Test 2
 ^^^^^^
 
-In welchen zwei unterschiedlichen Situationen kommt in Java das reservierte Wort this zum Einsatz?
+In welchen zweiünterschiedlichen Situationen kommt in Java das reservierte Wort this zum Einsatz?
 
   * Zum Zugriff auf eine Objektvariable, wenn sie durch einen gleichnamigen Parameter oder eine gleichnamige lokale Variable verdeckt wird.
   * Bei der Konstruktorverkettung zum Aufruf eines anderen Konstruktors.
 
 
-Was bedeutet overloading und worauf ist dabei zu achten?
+Was bedeutet overloadingünd worauf ist dabei zu achten?
 
   Overloading bezeichnet die Möglichkeit,
   dass eine Klasse mehrere Methoden mit gleichem Namen
   haben kann. Diese Methoden müssen
-  sich aber anhand der Parameterliste unterscheiden lassen,
-  entweder durch unterschiedliche Anzahl von Parametern oder durch unterschiedliche Datentypen der
+  sich aber anhand der Parameterlisteünterscheiden lassen,
+  entweder durchünterschiedliche Anzahl von Parametern oder durchünterschiedliche Datentypen der
   Parameter.
 
 
@@ -309,9 +627,9 @@ Wozu dient ein Konstruktor?
     Ein Konstruktor dient zur korrekten Initialisierung eines neu erzeugten Objekts einer Klasse.
 
 
-Wieviele Konstruktoren kann eine Klasse minimal und maximal haben?
+Wieviele Konstruktoren kann eine Klasse minimalünd maximal haben?
 
-    Jede Klasse hat mindestens einen Konstruktor und kann beliebig viele davon haben. Wenn in einer
+    Jede Klasse hat mindestens einen Konstruktoründ kann beliebig viele davon haben. Wenn in einer
     Klasse kein Konstruktor definiert wird, dann erzeugt der Compiler automatisch einen
     Default-Konstruktor.
 
@@ -325,9 +643,9 @@ Wie funktioniert die Initialisierung von Objekten im Gegensatz zu primitiven Var
     passende Default-Werte.
 
 
-Was sind die Vor- und Nachteile einer unveranderlichen Klasse
+Was sind die Vor-ünd Nachteile einerünveranderlichen Klasse
 
-    Vorteil: Unveränderliche Klassen können fast wie primitive Variablen verwendet werden.
+    Vorteil:ünveränderliche Klassen können fast wie primitive Variablen verwendet werden.
     Nachteil: Methoden zur Veränderung eines Objekts müssen jeweils ein neues Objekt erzeugen.
 
 
@@ -348,12 +666,12 @@ Was fällt Ihnen zu folgender Anweisung in einem Java-Programm ein?
   Es wird hier geprüft, ob die Variable `punkt` ein Objekt referenziert.
 
 
-Was sind die wesentlichen Unterschiede zwischen den Java-Typen String und StringBuilder?
+Was sind die wesentlichenünterschiede zwischen den Java-Typen Stringünd StringBuilder?
 
   StringBuilder ist einer normale veränderliche
   Klasse.
-  String ist unveränderlich
-  und hat ein paar Besonderheiten: kein new notwendig, +-Operator zur
+  String istünveränderlich
+ ünd hat ein paar Besonderheiten: kein new notwendig, +-Operator zur
   Verkettung,
 
 
@@ -384,7 +702,7 @@ Ist die Operation '1'+ 2 zulässig? Falls ja: Welchen Typ hat das Ergebnis?
   Ja, Int
 
 
-Definieren Sie ein array und initialisieren Sie es mit folgenden Werten; 14, 2, 17, 71, 100.0
+Definieren Sie ein arrayünd initialisieren Sie es mit folgenden Werten; 14, 2, 17, 71, 100.0
 
   .. code-block:: java
 
@@ -426,7 +744,7 @@ Wie werden Klassenvariablen definiert?
   Mit dem Modifier static
 
 
-Geben Sie ein einfaches Beispiel fär die Definition einer Methode und deren Aufruf an.
+Geben Sie ein einfaches Beispiel fär die Definition einer Methodeünd deren Aufruf an.
 
   .. code-block:: java
 
@@ -437,12 +755,12 @@ Geben Sie ein einfaches Beispiel fär die Definition einer Methode und deren Auf
        double y=myobj.kubik(2);
 
 
-Wodurch unterscheiden sich die Zeichensätze ASCII, ISO-Latin1 und Unicode?
+Wodurchünterscheiden sich die Zeichensätze ASCII, ISO-Latin1ündünicode?
 
   Anzahl der Zeichen, verschiedene Zeichen mit Zeichencodes gräßer 12
 
 
-Was ist die Gemeinsamkeit bei den Zeichensätzen ASCII, ISO-Latin1 und Unicode?
+Was ist die Gemeinsamkeit bei den Zeichensätzen ASCII, ISO-Latin1ündünicode?
 
   Die ersten 128 Zeichen sind gleich.
 
@@ -467,12 +785,12 @@ Was bedeutet das reservierte Wort public in Java?
 
 Was ist die Aufgabe eines Konstruktors?
 
-  Objekt erzeugen und Anfangszustand herstellen.
+  Objekt erzeugenünd Anfangszustand herstellen.
 
 
 Welchen Wert hat eine lokale int-Variable, der kein Wert zugewiesen wurde?
 
-  Der Wert ist undefiniert.
+  Der Wert istündefiniert.
 
 
 Wieviele Referenztypen kann es in einem Java-Programm geben?
@@ -631,13 +949,13 @@ Polynomial
 	  System.out.printf("R1: %.3f, R2: %.3f, Rp: %.3f%n%n", R1, R2, Rp);
 
 
-	  // Kreissektor und -abschnitt
+	  // Kreissektoründ -abschnitt
 	  double r = Math.toRadians(a);
 	  double alpha = c;
 	  double SectorArea = (alpha * r * r) / 2d;
 	  double SegmentLength = r * r / 2d * (alpha - Math.sin(alpha));
 
-	  System.out.println("----- Kreissektor und Kreissegment ----- ");
+	  System.out.println("----- Kreissektoründ Kreissegment ----- ");
 	  System.out.printf("Input:  Radius: %.0f, alpha (rad / deg): %.02f / %.02f%n", r, alpha, Math.toDegrees(alpha));
 	  System.out.printf("Output: Kreissektor Fläche: %.03f, Kreissegment Länge: %.03f%n%n", SectorArea, SegmentLength);
 
@@ -812,12 +1130,12 @@ Polynomial
 	  // 2. Test
 
 	  /*
-	  Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmt und die Länge
-	  der längsten ununterbrochenen Folge von Ziffern als Ergebnis zurückgibt. (ohne Regex)
+	  Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmtünd die Länge
+	  der längstenünunterbrochenen Folge von Ziffern als Ergebnis zurückgibt. (ohne Regex)
 	  */
 
 	  System.out.println("----- String Manipulation ----- ");
-	  String text = ("A-Ä-Ö-Ü a-e-ö-ü hallo 12 hnjkj54 n324 ä 2n5 ö Ä Üöä23 3252l 5 235 jjnljh 5t252p 12345678 ");
+	  String text = ("A-Ä-Ö-Ü a-e-ö-ü hallo 12 hnjkj54 n324 ä 2n5ö Ä Üöä23 3252l 5 235 jjnljh 5t252p 12345678 ");
 	  System.out.println(text);
 
 
@@ -836,9 +1154,9 @@ Polynomial
 	  System.out.println("Länge längste zusammenhängende Ziffernfolge: " + maxSequenceLength);
 
 	  /*
-	  Umlaute ersetzen
-	  Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmt und alle
-	  Umlaute durch "AE", "OE", "UE", "ae", "ou", "ue" ersetzt.
+	 ümlaute ersetzen
+	  Schreiben Sie eine Java-Funktion, welche einen String als Parameter entgegennimmtünd alle
+	 ümlaute durch "AE", "OE", "UE", "ae", "ou", "ue" ersetzt.
 	  */
 
 	  StringBuilder textUl = new StringBuilder(text);
@@ -857,10 +1175,10 @@ Polynomial
 	  /*
 	  Differenzen
 	  Schreiben Sie ein Java-Programm, welches eine beliebige Anzahl von ganzen Zahlen als
-	  Kommandozeilenparameter entgegennimmt und folgende Aufgabe löst:
-	  • Das Programm soll alle möglichen Differenzen bilden (nur Absolutwerte) und aufsteigend
+	  Kommandozeilenparameter entgegennimmtünd folgende Aufgabe löst:
+	  Das Programm soll alle möglichen Differenzen bilden (nur Absolutwerte)ünd aufsteigend
 	  sortiert ausgeben.
-	  • Verbesserung: Jede auftretende Differenz soll nur ein Mal ausgegeben werden.
+	  Verbesserung: Jede auftretende Differenz soll nur ein Mal ausgegeben werden.
 	  */
 
 	  System.out.println("----- Differenzen ----- "); //todo
@@ -874,10 +1192,10 @@ Polynomial
 	  }
 	  System.out.println("----- ----- ");
 
-	  int unique_elements_count = 0;
+	  intünique_elements_count = 0;
 
-	  for (int u = 0; u < inputNumbers.length; u++) {
-	      for (int v = u + 1; v < inputNumbers.length; v++) {
+	  for (intü = 0;ü < inputNumbers.length;ü++) {
+	      for (int v =ü + 1; v < inputNumbers.length; v++) {
 		  double diffValue = Math.abs(inputNumbers[u] - inputNumbers[v]);
 
 		  boolean firstOccurence = true;
@@ -890,8 +1208,8 @@ Polynomial
 
 		  if (firstOccurence) {
 		      differences[unique_elements_count] = diffValue;
-		      unique_elements_count++;
-		      System.out.println("Value: " + diffValue + " Position: " + unique_elements_count);
+		     ünique_elements_count++;
+		      System.out.println("Value: " + diffValue + " Position: " +ünique_elements_count);
 		  }
 	      }
 	  }
@@ -903,9 +1221,9 @@ Polynomial
 	  }
 	  System.out.println("----- ----- ");
 
-	  for (i = 0; i < unique_elements_count; i++) {
+	  for (i = 0; i <ünique_elements_count; i++) {
 	      int l = i + 1;
-	      while ((l > 0) && (differences[l] < differences[l - 1]) && (l < unique_elements_count)) {
+	      while ((l > 0) && (differences[l] < differences[l - 1]) && (l <ünique_elements_count)) {
 		  double tmp_element = differences[l];
 		  differences[l] = differences[l - 1];
 		  differences[l - 1] = tmp_element;
@@ -915,13 +1233,13 @@ Polynomial
 
 	  System.out.println("----- Sorted Array ----- ");
 
-	  for (i = 0; i < unique_elements_count; i++) {
+	  for (i = 0; i <ünique_elements_count; i++) {
 	      System.out.println(differences[i]);
 	  }
 	  System.out.println("----- ----- ");
 
 	  /*
-	  Geben Sie eine Methode an, welche einen String als Parameter entgegennimmt und als Ergebnis true liefert,
+	  Geben Sie eine Methode an, welche einen String als Parameter entgegennimmtünd als Ergebnis true liefert,
 	  wenn folgende Bedingungen erfüllt sind, sonst false.
 	  Bedingungen:
 	      1. Im String dürfen nur Ziffern enthalten sein.
@@ -933,8 +1251,8 @@ Polynomial
 	  System.out.println(("1" + 2));
 
 	  /*
-	  Schreiben Sie eine statische Methode zur Umwandlung von römischen Zahlen in Dezimalzahlen.
-	  Die Methode soll einen String-Parameter mit der römischen Zahl erhalten und als Ergebnis die
+	  Schreiben Sie eine statische Methode zurümwandlung von römischen Zahlen in Dezimalzahlen.
+	  Die Methode soll einen String-Parameter mit der römischen Zahl erhaltenünd als Ergebnis die
 	  äquivalente arabische Zahl zurückgeben.
 	  */
 
@@ -979,7 +1297,7 @@ Polynomial
 	      if (i + 1 < roman.length()) {
 		  nextDigit = roman.charAt(i + 1);
 	      } else {
-		  nextDigit = currentDigit;  // a bit ugly but works
+		  nextDigit = currentDigit;  // a bitügly but works
 	      }
 
 	      if (romanDigitValue(currentDigit) < romanDigitValue(nextDigit)) {

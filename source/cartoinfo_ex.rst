@@ -312,3 +312,207 @@ And finally query which streets intersect the triangle:
     assignment instructions.
 *   ``st_intersects`` checks whether two geometries intersect and returns
     TRUE / FALSE.
+
+
+Assignment 2: Open Web standards
+================================
+
+WMS: Potential sunshine in Vorarlberg
+-------------------------------------
+
+WMS stands for Web Map Service. It is designed to provide georeferenced map images
+to end-users. WMS reference: http://docs.geoserver.org/2.6.x/en/user/services/wms/reference.html
+
+The county of Vorarlberg provides WMS access to a range of maps from the
+Vorarlberg-Atlas. A list of available WMS services can be accessed at
+https://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm.
+For this report I looked at the "Besonnung" (potential sunshine exposure) map.
+
+GetCapabilities
+^^^^^^^^^^^^^^^
+
+http://vogis.cnv.at/mapserver/mapserv?map=i_besonnung_r_wms.map&version=1.3.0&service=wms&request=getcapabilities
+
++----------------------+-------------------------------------------------------------------------------------+
+| Metadata (excerpt)                                                                                         |
++======================+=====================================================================================+
+| WMS Version          | 1.3.0                                                                               |
++----------------------+-------------------------------------------------------------------------------------+
+| Title                | Besonnung                                                                           |
++----------------------+-------------------------------------------------------------------------------------+
+| Abstract             | Geodaten des Bundeslandes Vorarlberg als OGC-WMS                                    |
++----------------------+-------------------------------------------------------------------------------------+
+| Keywords             | -missing-                                                                           |
++----------------------+-------------------------------------------------------------------------------------+
+| Online Resource      | http://vogis.cnv.at/mapserver/mapserv?map=i_besonnung_r_wms.map                     |
++----------------------+-------------------------------------------------------------------------------------+
+| Contact Person       | N.N. GIS-Techniker Landesamt für Vermessung und Geoinformation Vorarlberg           |
++----------------------+-------------------------------------------------------------------------------------+
+| Fees                 | none                                                                                |
++----------------------+-------------------------------------------------------------------------------------+
+| Access Constraints   | -missing-                                                                           |
++----------------------+-------------------------------------------------------------------------------------+
+| Image Formats        | jpeg, gif, png, tiff, jpeg2000, png 8bit                                            |
++----------------------+-------------------------------------------------------------------------------------+
+| Identify Formats     | text/html, application/vnd.ogc.gml, text/plain                                      |
++----------------------+-------------------------------------------------------------------------------------+
+| Layer Count          | 26                                                                                  |
++----------------------+-------------------------------------------------------------------------------------+
+
++----------------------+-------------------------------------------------------------------------------------+
+| Operations                                                                                                 |
++======================+=====================================================================================+
+| GetCapabilities      | Metadata describing the WFS services and available operations                       |
++----------------------+-------------------------------------------------------------------------------------+
+| GetMap               | Retrieve map image                                                                  |
++----------------------+-------------------------------------------------------------------------------------+
+| GetFeatureInfo       | Retrieve underlying data (geometry, attributes)                                     |
++----------------------+-------------------------------------------------------------------------------------+
+| GetLegendGraphic     | Retrieve a legend for the map (does not work correctly on this server)              |
++----------------------+-------------------------------------------------------------------------------------+
+
+GetMap
+^^^^^^
+
+As indicated in the metadata retrieved via GetCapabilities, 26 Map layers are
+available for the Vorarlberg sunshine data:
+
+* 1x parent-layer
+* 12x globstr. sun exposure per month (it is not documented what globstr. stands for)
+* 12x potential sun exposure per month
+* 1x potential sun exposure (whole year)
+
+As an example, the following URL requests sun exposure data for the whole year,
+projected in EPSG:4326 (WGS84) as a jpeg image file:
+
+http://vogis.cnv.at/mapserver/mapserv?map=i_besonnung_r_wms.map&version=1.3.0&service=wms&request=getMap&Format=jpeg&SRS=EPSG:4326&VERSION=1.0.0&Layers=pbs_jahr&BBOX=9.4011800000000001,46.7554000000000016,10.3330000000000002,47.6585999999999999&width=600&height=600
+
+.. figure:: _static/img/cartoinfo/ex2_wms_besonnung.png
+    :align: center
+
+    Sun exposure in Vorarlberg (whole year).
+
+
+GetLegend
+^^^^^^^^^
+
+A GetLegend request only returns an empty picture for the Vorarlberg WFS. This is likely a
+problem with the WMS server.
+http://vogis.cnv.at/mapserver/mapserv?map=i_besonnung_r_wms.map&version=1.3.0&service=wms&request=getLegendGraphic&Format=png&VERSION=1.0.0&Layer=pbs_jahr
+
+
+WFS: Open Government Data WFS Wien
+----------------------------------
+
+WFS stands for Web Feature Service. It provides discrete geospatial features to
+the end-user. WFS reference: http://docs.geoserver.org/2.6.x/en/user/services/wfs/reference.html
+
+The city of Vienna makes available a wide range of spatial data via WMTS, WMS and WFS.
+
+GetCapabilities
+^^^^^^^^^^^^^^^
+
+http://data.wien.gv.at/daten/geo?version=1.1.0&service=WFS&request=GetCapabilities
+
++----------------------+-------------------------------------------------------------------------------------+
+| Metadata (excerpt)                                                                                         |
++======================+=====================================================================================+
+| WFS Version          | 1.1.0                                                                               |
++----------------------+-------------------------------------------------------------------------------------+
+| Title                | Open Government Data WFS Wien                                                       |
++----------------------+-------------------------------------------------------------------------------------+
+| Abstract             | This service provides access to online vector data of the City of Vienna, Austria.  |
++----------------------+-------------------------------------------------------------------------------------+
+| Keywords             | WFS, Wien, Vienna, vector, government, data                                         |
++----------------------+-------------------------------------------------------------------------------------+
+| Fees                 | http://creativecommons.org/licenses/by/3.0/at/deed.de                               |
++----------------------+-------------------------------------------------------------------------------------+
+| Access Constraints   | http://data.wien.gv.at/nutzungsbedingungen                                          |
++----------------------+-------------------------------------------------------------------------------------+
+
++----------------------+-------------------------------------------------------------------------------------+
+| Operations                                                                                                 |
++======================+=====================================================================================+
+| GetCapabilities      | Metadata describing the WFS services and available operations                       |
++----------------------+-------------------------------------------------------------------------------------+
+| DescribeFeatureType  | Supported feature types                                                             |
++----------------------+-------------------------------------------------------------------------------------+
+| GetFeature           | Returns a selection of features (geometry + attributes)                             |
++----------------------+-------------------------------------------------------------------------------------+
+| GetGmlObject         | Retrieve features and elements by ID                                                |
++----------------------+-------------------------------------------------------------------------------------+
+
+GetFeature
+^^^^^^^^^^
+
+While WMS data can easily be accessed from a web browser, it is better to view
+WFS data in a GIS application like QGIS.
+
+GetFeature (city walking tracks):
+http://data.wien.gv.at/daten/geo?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=ogdwien:SPAZIERLINIEOGD&SRSNAME=EPSG:31256
+
+GetFeature (district borders):
+http://data.wien.gv.at/daten/geo?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=ogdwien:BEZIRKSGRENZEOGD&SRSNAME=EPSG:31256
+
+.. figure:: _static/img/cartoinfo/ex2_wfs_wien.png
+    :align: center
+
+    City walking tracks and district borders of Vienna.
+
+
+WCS: Digital Terrain Model & Digital Surface Model Canton Zürich
+---------------------------------------------------------------
+
+WCS stands for Web Coverage Service (WCS). It provides coverages (raw geospatial
+data) to the end-user. WCS reference: http://docs.geoserver.org/2.6.x/en/user/services/wcs/reference.html
+
+The official GIS-center of the canton Zürich provides access to a high
+resolution DTM/DSM via WCS.
+
+GetCapabilities
+^^^^^^^^^^^^^^^
+
+http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=GetCapabilities
+
++----------------------+-------------------------------------------------------------------------------------+
+| Metadata (excerpt)                                                                                         |
++======================+=====================================================================================+
+| WFS Version          | 1.1.0                                                                               |
++----------------------+-------------------------------------------------------------------------------------+
+| Title                | Digitales Höhenmodell                                                               |
++----------------------+-------------------------------------------------------------------------------------+
+| Abstract             | Geodienst des GIS-ZH                                                                |
++----------------------+-------------------------------------------------------------------------------------+
+| Keywords             | GIS-ZH, Geodaten                                                                    |
++----------------------+-------------------------------------------------------------------------------------+
+| Fees                 | none                                                                                |
++----------------------+-------------------------------------------------------------------------------------+
+| Access Constraints   | none                                                                                |
++----------------------+-------------------------------------------------------------------------------------+
+
++----------------------+-------------------------------------------------------------------------------------+
+| Operations                                                                                                 |
++======================+=====================================================================================+
+| GetCapabilities      | Metadate describing available data & WCS operations                                 |
++----------------------+-------------------------------------------------------------------------------------+
+| DescribeCoverage     | Describe requested coverages                                                        |
++----------------------+-------------------------------------------------------------------------------------+
+| GetCoverage          | Get the coverage in a well known file format                                        |
++----------------------+-------------------------------------------------------------------------------------+
+
+DescribeCoverage & GetCoverage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A DescribeCoverage retrieves metadata about a coverage. The following parameters
+are required for designing a GetCoverage request:
+  * Available coverages (dtm2014 in the example)
+  * Available formats (tif in the example)
+  * Available CRS and matching bounding boxes
+
+DescribeCoverage: http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=DescribeCoverage
+GetCoverage: http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=GetCoverage&CRS=EPSG:4326&BBOX=8.15828965399897,47.1430242738971,9.0386911908456,47.7138425493563&COVERAGE=dtm2014&WIDTH=800&HEIGHT=800&FORMAT=tif
+
+.. figure:: _static/img/cartoinfo/ex2_wcs_zurich.png
+    :align: center
+
+    Digital surface model of the canton Zürich.

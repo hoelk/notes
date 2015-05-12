@@ -1,6 +1,20 @@
 Python
 ######
 
+
+I/O
+===
+
+* numpy (ascii, binary files)
+* pandas (ascii)
+* struct (binary files) (http://pymotw.com/2/struct/)
+    * conversions between Python values and C structs represented as Python strings
+* pickle (http://www.diveintopython3.net/serializing.html)
+    * native python serialization format
+* pytables / H5py (http://www.h5py.org/)
+    * efficient for large arrays
+
+
 Virtual Environemnts
 ====================
 
@@ -12,6 +26,9 @@ Virtual Environemnts
 	source env/bin/activate
 
     pip list # to list installed packages
+
+virtualenvs tend to break if you move the folder, in this case the easiest thing
+is to delete and reinstall
 
 List comprehension
 ==================
@@ -109,3 +126,16 @@ Renaming files code example
 	    filename_new = filename_new.replace(" (720p)", "")
 	    filename_new = filename_new.replace("_", "")
 	    os.rename(filename, filename_new)
+
+Pandas
+======
+
+pandas series ~ R vector
+
+.. code-block:: python
+
+    s[s > s.median()]
+
+    'e' in s
+
+pandas DataFrame ~ R data.frame
