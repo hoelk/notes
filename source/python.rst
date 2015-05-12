@@ -139,3 +139,42 @@ pandas series ~ R vector
     'e' in s
 
 pandas DataFrame ~ R data.frame
+
+
+Access Postgres
+================
+
+.. code-block:: python
+
+    import psycopg2 as database
+    import postgresql_secret as secret
+    # for MySQL, we would install MySQLdb and use
+    # import MySQLdb as database
+
+
+    connection = database.connect(
+        host=secret.SERVER,
+        user=secret.USERNAME,
+        passwd=secret.PASSWORD,
+        db=secret.DB
+    )
+
+
+    data = []
+
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM places")
+
+    fieldnames = []
+    for desc in cursor.description:
+        fieldnames.append(desc[0])
+
+    for row in cursor:
+        row_data = {}
+
+        for i, fname in enumerate(fieldnames):
+            row_data[fname] = row[i]
+
+        data.append(row_data)
+
+The output is a list of dictionaries containing the data from the table "places"
