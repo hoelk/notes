@@ -4,6 +4,150 @@ Java (EPROG)
 Notes
 =======
 
+Aufgabe 4
+---------
+
+.. code-block:: java
+
+    import java.util.*;
+    import java.io.*;
+    public class Stadt implements Comparable<Stadt>
+    {
+      //Klassenvariablen
+      String CountryCode;
+      String ASCIIName;
+      String CountryName;
+      long population;
+      double lat;
+      double lon;
+
+      //Konstruktor
+      Stadt(String CountryCode, String ASCIIName, String CountryName, long Population, double lat, double lon)
+      {
+        this.CountryCode = CountryCode;
+        this.ASCIIName = ASCIIName;
+        this.CountryName = CountryName;
+        this.population = population;
+        this.lat = lat;
+        this.lon = lon;
+
+      }
+
+      public int compareTo(Stadt other)
+      {
+         //andere Stadt ist größer
+         if (other.population > this.population) {
+           return 1;
+         } // end of if
+         //andere Stadt ist kleiner
+         if (other.population < this.population) {
+           return -1;
+         } // end of if
+         //andere Stadt gleich groß
+         else {
+           return 0;
+         } // end of if-else
+        }
+
+
+      //to String methode
+      public String toString()
+      {
+        String ausgabe = String.format("%15s (L=%10.6f/ B=%10.6f)",ASCIIName,lon,lat);
+        String punktpunkt = String.format("%20f", population).replace(" ",".");
+
+        return ausgabe +punktpunkt+"EW.";
+      }
+
+
+
+    }
+
+
+    import java.util.*;
+    public class Cityfinder
+    {
+
+      public static void main (String[]args)
+      {
+        FileInputStream istream = new FileInputStream("Dateiname");
+        InputStreamReader reader = new InputStreamReader (istream);
+        BufferedReader input = new BufferedReader (reader);
+        String line;
+
+        HashMap<String,LinkedList> cc_stadt = new HashMap<String,LinkedList>(); //verknüpft countrycode mit Stadt
+
+        //Schleife zum Einlesen aller Städte
+        while ((line = input.readLine()) != 0 )   //Gibt es ein Land?
+        {
+          String[] elem = line.split(",");
+          LinkedList val = cc_stadt.get(elem[0]);   //Wir kennen das Element, wollen aber dessen Wert (Schlüssel bekannt)
+          if (val == 0)
+          {
+            LinkedList<Stadt> neuesLand = new LinkedList<Stadt>();    //2 Collectionklassen miteinander verbinden
+            val = neuesLand;
+            cc_stadt.put(elem[0],neuesLand);   //leere Liste anlegen
+          }
+          //Stadt zu LinkedList hinzufügen
+          Stadt x = new Stadt(elem[0],elem[1],elem[2],elem[3],Integer.parseInt(elem[4]),Double.parseDouble(elem[5]),Double.parseDouble(elem[6]),elem[0]); //letztes elem[0] für CountryName platzhalter, elem(4)= Population
+          val.add(x);
+        }
+
+        FileInputStream istream2 = new FileInputStream("CountryCodes.txt");
+        InputStreamReader reader2 = new InputStreamReader (istream2);
+        BufferedReader input2 = new BufferedReader (reader2);
+
+        HashMap<String,String> ccc = new HashMap<String,String>();  //ccc = countryCodes and Countries
+        while (line2 = input2.readLine()) {
+          String[] elem = line2.split(",");
+          ccc.add(elem[0],elem[1]);
+        } // end of while
+
+        LinkedList<Stadt> steatteDesLandes = cc_stadt.get(args[0]);
+        LinkedList<Stadt> sortedCities = Collections.sort(steatteDesLandes);
+
+        //größte Stadt in neue LinkedList speichern
+        LinkedList<Stadt> biggestCities = new LinkedList<Stadt>();
+        for (int i = 0;i<Integer.parseInt(args[1]) ;i++ ) {
+          biggestCities.add(sortedCities.get(i));
+        } // end of for
+
+        //Liste mit Städten zum gesuchten Land holen  und sortieren
+        //erste n ausgeben  n=(args[1])
+        //Namen der Stadt nehmen und schauen, in welchen Ländern es diese Stadt gibt
+        Iterator it = biggestCities.iterator();
+        while (it.hasNext()) {
+          Stadt SuchStadt = it.next();
+          String StadtName = SuchStadt.ASCIIName;
+          TreeSet<String> CountryCode = new TreeSet<String>();
+          Iterator LandIt = cc_stadt.values().iterator();
+          while (LandIt.hasNext()) {
+            Iterator StadtIt = landIt.next().iterator();
+            while (StadtIt.hasNext()) {
+              Stadt DS = Stadt.next();
+              if (DS.ASCIIName == StadtName) {
+                CountryCode.add(DS.CountryCode);
+                break;
+              } // end of if
+            } // end of while
+          } // end of while
+          //ausgabe
+          System.out.println(SuchStadt);
+          System.out.println("Andere Länder mit dieser Stadt");
+          Iterator CountryIt = CountryCodes.iterator();
+          while (CountryIt.hasNext()) {
+            System.out.println(ccc.getCountryIt.ext());
+          } // end of while
+        } // end of while
+        //indem wir wir schauen, in welcher Liste so eine Stadt existiert
+        //Ländernamen in LinkedList abspeichern
+        //sortieren und Länder nach Alphabet (Collection.sort) +ausgeben(Iterator)
+        //alles in Methoden
+      }
+
+
+}
+
 
 Error handling
 ==============
@@ -71,8 +215,206 @@ Einfache / Primitive Datentypen in Java:
 Testfragen
 ===========
 
+
 2. Semester
 -----------
+
+Test 2
+------
+
+Schätzen Sie den Aufwand für die rekursive und iterative Berechnung der
+Fibonacci-Zahlen ab.
+
+Schreiben Sie eine verbesserte rekursive Funktion zur Berechnung von
+Fibonacci-Zahlen, welche bereits berechnete Zahlen in einem Array
+speichert und nicht immer wieder neu berechnet.
+
+Schreiben Sie eine effiziente Funktion
+public static String reverse(String text);
+die den als Parameter übergebenen String umdreht (letztes Zeichen nach
+vorne, erstes nach hinten). StringBuilder soll dabei nicht verwendet
+werden.
+
+Überprüfen Sie experimentell das Laufzeitverhalten der beiden Funktionen
+testString und testSB indem Sie immer wieder die Länge n verdoppeln
+und mit der Funktion System.nanoTime() die Laufzeit feststellen.
+
+Sortierverfahren und mittlerer asymptotischer Aufwand
+
+    * Bubblesort     :math:`O(n^2)`
+    * Selectionsort  :math:`~N^2/2`
+    * Insertionsort  :math:`~N^2/4`
+    * Mergesort      :math:`~n \log{n}`
+    * Quicksort      :math:`~1.4 n \log{n}`    :math:`O (n^2)`
+    * Heapsort
+
+
+Suchverfahren und asymptitischer aufwand
+
+    * Linear search: O(n)
+    * Binary search: O(log n)
+
+
+Was versteht man unter einem stabilen Sortierverfahren und welche der besprochenen Verfahren gehoeren
+zu dieser Kategorie?
+
+    Bei Mehrfacheintraegen bleibt urspruengliche Ordnung erhalten
+
+    * Insertion Sort
+    * Merge Sorted
+    * Bubblesort
+    * Qicksort (nein, aber es gibt varianten die stabil sind)
+
+
+Was sind Wrapper-Klassen und wozu werden sie benoetigt?
+
+    * Wrappen einen primitiven typ in eine Referenzklasse
+    * Haben statische Hilfsfunktionen (z.B MIN_VALUE, MAX_VALUE)
+    * Implementieren das Compareable interface
+    * Nützlich für Fälle wo direkt keine Primtiven Werte verwendet werden
+    können (z.b. in Array lists)
+
+
+Was versteht man unter Autoboxing bzw. Auto-Unboxing?
+
+    * Beim aufrufen des Konstruktors einer wrapper klasse wird ein primitiver
+    Wer "verpackt" (boxing), beim aufrufen der Getter-Methode "entpackt" (unboxing)
+    * Das ist umstaendlich zum schreiben deswegen fuegt der Java compiler automatisch
+    die Anweisung ein, und man kann es wie eine einfache Zuweisung schreiben:
+
+    .. code-block :: java
+
+        Integer integer = new Integer(17);
+        int i = integer.intValue();
+
+        Integer integer = 17;
+        int i = integer;
+
+
+Was ist die Grundidee hinter divide-and-conquer
+
+    * Rekursives reduzieren eines problems of leichter zu lösende
+    Teilprobleme
+
+
+Wie kann man das Problem umgehen, dass die Größe von Arrays nach dem Anlegen nicht mehr
+veränderbar ist?
+
+    * Plätze im Array für neue Einträge reservieren. Anzahl der reservierten
+    (leeren) Einträge kann dann von zb. den setter und getter methoden überprüft
+    und angepasst werden falls mehr/weniger benötigt werden
+
+    * Keine Arrays verwenden sondern die collection Klasse "Array-list"
+
+
+Geben Sie Unterschiede (Vor- und Nachteile) der Typen String und StringBuilder an.
+
+    * String verhaelt sich wie ein primtiver Datentyp
+    * String builder ist veraenderlich und stellt mehr methoden zur verfuegung
+
+
+Welche Alternativen zu Arrays gibt es, um eine großere Menge von gleichartigen Daten zu organisieren?
+
+    * Array lists (mit Duplikaten)
+    * Sets (ohne Duplikate)
+
+
+Wie unterscheidet sich die Organisation einer Liste von einem Baum?
+
+    * Bei einer Liste folgt auf ein Element immer ein weiteres element
+    * Bei einem Baum folgen 2 oder mehr
+
+Was ist die minimale und maximale Hohe eines Binarbaums, welcher 27 Knoten enth ̈ alt?
+
+    * 26 (er entspricht einer Liste)
+    * 4
+
+Welche Bedingungen zwischen Knoten mussen bei einem binären Suchbaum erfüllt sein?
+
+    * Knoten müssen geordnet sein
+        * Linkes Child kleiner als Parent, rechts Child größer.
+
+Warum sind bin ̈are Suchbaume bei dynamischen Anwendungen vorteilhaft?
+
+    * Einfügen und Löschen von Elementen ist vergleichsweise
+    effizient (aber weniger effizient als hastables)
+
+Was versteht man unter einem abstrakten Datentyp?
+
+    Eine Menge von Werten mit dazupassenden Operationen
+
+Was ist der wesentliche Unterschied zwischen Collections und Maps?
+
+    * Collections speichern Einzelelemente und implementieren das Collection
+    Interface
+    * Maps speichern Element-paare und implementieren das Map interface
+
+Welche Vorteile hat es abstrakte Datentypen zu verwenden statt die entsprechenden Konzepte direkt in
+eigene Klassen zu realisieren?
+
+Was versteht man unter einem Iterator?
+
+    * Iteratoren sind verallgemeinerung der idee eines Indexwertes, so dass auch
+    über ungeordnete Datentypen (zb Sets) iteriert werden kann
+    * Iteratoren verlieren (im allgemeinen) ihre gültigkeit wenn sie am Ende der zu iterierenden
+    Collection angekommen sind (Ausname: List iteratoren)
+    * Iteratoren verlieren ihre gültigkeit wenn die Collection modifiziert wird
+        * Iteratoren bieten selber methoden zum modifizieren von Collections
+        die den Iterator nicht entwerten
+
+ Welche Vorteile bieten Listen-Iteratoren gegen ̈ uber einfachen Iteratoren? beide Richtungen, am Ende funktionsfähig
+
+    * Normale iteratoren gehen nur in eine Richtung (zum nächsten element),
+    List operatoren können auch zum vorherigen element bewegt werden
+    * Normale iteratoren verlieren ihre Gültigkeit wenn sie am ende angekommen
+    sind, List iteratoren nicht.
+
+
+Welche Eigenschaften muss eine gute Hashfunktion haben?
+
+    * Verteilt die Schlüsselwerte gleichmäßig auf den Indexbereich
+    der Hastable
+    * Eine möglichkeit: Ganzzahldivision des Wertes mit einer
+    Primzahl und heranziehen des Rests als hashcode
+
+    .. code-block:: java
+        private int hash( Key x )
+            { return (x.hashCode() & 0x7fffffff) % M; }
+
+
+Was versteht man unter einer Kollision in einer Hashtabelle und
+welche Möglichkeiten gibt es, das Problem zu lösen?
+
+    Zwei Objekte haben den selben Hashkey
+    * Einträge der Hastable bestehen aus linked lists in denen
+    alle objekte mit den selben hash codes plaziert werden
+    * Objekt wird dem nächsten freien Platz zugeweisen
+
+
+Geben Sie fur die folgende Zahlenreihe an, wie sich die Reihe schrittweise verandert, wenn sie mit Hilfe
+von Quicksort, Selectionsort, Insertionsort oder Mergesort sortiert wird und des erste Element das
+Pivot-Element ist: 5,1,3,2,7,4,6
+
+
+Unterschied Comperator und Comparable
+
+    Comparable
+    * Sortierlogik in selber klasse wie zu sortierende Objekte
+    * Definiert die Natürliche ordnung von Objekten
+    * Zu sortierende klassen müssen das interface implementieren
+
+    Compareable
+    * Sortierlogik in sepparater klasse; sortieren nach unterschiedlichen
+    Werten möglich
+    *
+
+
+
+
+
+
+Test 1
+-------
 
 Welchen Zweck haben Packages in Java?
 

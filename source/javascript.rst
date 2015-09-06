@@ -80,6 +80,7 @@ Hoisting fun with functions
 D3.js
 =====
 
+
 Load data, select element by css id
 -----------------------------------
 
@@ -94,13 +95,17 @@ Load data, select element by css id
         )
     });
 
-look at:
-
 .. code-block:: js
 
     selection.enter() // what to do with NEW objects
     selection.transition() // what to do with ALL objects
     pathGenerator // geogrpahical geometry to screen geopgraphy
+
+
+Path generator
+--------------
+
+
 
 .. code-block:: js
 

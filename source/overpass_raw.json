@@ -1,0 +1,21 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API",
+  "osm3s": {
+    "timestamp_osm_base": "2015-05-12T13:49:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 3363350713,
+  "lat": 48.9172254,
+  "lon": 17.0987157,
+  "tags": {
+    "amenity": "ice_cream"
+  }
+}
+
+  ]
+}

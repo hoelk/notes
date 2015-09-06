@@ -505,9 +505,9 @@ DescribeCoverage & GetCoverage
 
 A DescribeCoverage retrieves metadata about a coverage. The following parameters
 are required for designing a GetCoverage request:
-  * Available coverages (dtm2014 in the example)
-  * Available formats (tif in the example)
-  * Available CRS and matching bounding boxes
+* Available coverages (dtm2014 in the example)
+* Available formats (tif in the example)
+* Available CRS and matching bounding boxes
 
 DescribeCoverage: http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=DescribeCoverage
 GetCoverage: http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=GetCoverage&CRS=EPSG:4326&BBOX=8.15828965399897,47.1430242738971,9.0386911908456,47.7138425493563&COVERAGE=dtm2014&WIDTH=800&HEIGHT=800&FORMAT=tif
@@ -516,3 +516,43 @@ GetCoverage: http://wms.zh.ch/DEMWCS?SERVICE=WCS&Version=1.0.0&Request=GetCovera
     :align: center
 
     Digital surface model of the canton Zürich.
+
+
+Assignment 3 - CartoDB
+======================
+
+Tornados in the USA 2013
+------------------------
+
+This map visualises Tornados in the USA in the
+year 2013 as a Torque animation. Tornados are
+depicted by red dots. Using animations to
+visualize this kind of data gives a good overview
+of how tornado frequency changes throughout the year.
+
+Map link: http://cdb.io/1GaYMDR
+
+Dataset: http://acdmy.org/d/tornadoes.zip (Freely available)
+
+Sustainability Guide to Markets in Vienna
+-----------------------------------------
+
+Shows food markets in Vienna with the added
+information whether they are producer's markets, where
+farmers directly sell their produce,
+and whether they have a separate organic food section.
+
+The dataset also contained other kinds of markets
+that were filtered out via a simple sql query:
+
+.. code-block:: psql
+
+    SELECT * FROM geoserver_getfeature_application
+    WHERE marktkategorie = 'Lebensmittel und Waren aller Art'
+
+For better visibility, cartocss was used to style
+the borders of market-polygons.
+
+Map link: http://cdb.io/1LdZuEz
+
+Dataset: https://open.wien.gv.at/site/datensatz/?id=aab0a0be-89e6-442e-8cf9-e762bd18f76b (Vienna OGD data, Creative Commons)

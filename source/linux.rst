@@ -8,6 +8,14 @@ Tricks
 
   locate firefox.desktop # find desktop files
 
+
+Replace in all files in directory
+
+.. code-block:: bash
+
+    find ./ -name \*.R -exec sed -i "s/allance/alance/g" {} \;
+
+
 Setup git
 =========
 

@@ -1,6 +1,21 @@
 Geometric Algorithms
 ====================
 
+Exam Topics
+===========
+
+* Basic geometric problems
+    * f.e. pseudocode for point in polygon, line intersection, etc..
+* Asymptotic notation
+    * 3x proof f(m) = O(g(m))
+    * 2x analyse runtime of algorithm
+* Plane sweep
+    * Open questions
+    * Application to one computational geometry problem
+    * Look at plain approach vs polar sweep
+    * What kinds of data structures do you need, etc..
+
+
 * Computational Geometry - Algorithms and Applications
 
 point position

@@ -178,3 +178,141 @@ Access Postgres
         data.append(row_data)
 
 The output is a list of dictionaries containing the data from the table "places"
+
+
+Web APIs
+========
+
+OSM / Overpass query language
+-----------------------------
+
+Test overpass at http://www.overpass-turbo.eu/
+
+
+.. code-block:: python
+
+    query = """
+    [out:json]
+    [timeout:25]
+    ;
+    node
+      (46.3,9.5,49.0,17.1)
+      [amenity="ice_cream"];
+    out body;
+    """
+
+    full_query = {
+        'data': query
+    }
+
+    import urllib
+
+    url = "http://overpass-api.de/api/interpreter?" + urllib.urlencode(full_query)
+
+    print "Downloading overpass data ..."
+
+    urllib.urlretrieve (url, 'data/overpass_raw.json')
+
+    print "Done."
+
+
+Object orientation
+==================
+
+Encapsulation
+-------------
+
+pseudo-encapsulation realized through "_" and "__" in variable names
+
+http://stackoverflow.com/questions/1301346/the-meaning-of-a-single-and-a-double-underscore-before-an-object-name-in-python
+
+
+Inheritance
+-----------
+
+.. code-block:: python
+
+    class Human(object):
+        def core_functionality():
+            ....
+
+    class Student(Human):
+        def additional_functionality(self):
+            ....
+
+
+.. code-block:: python
+
+    class Shape(object):
+        def __init__(self, color):
+            self.color = color
+
+
+    class Rectangle(Shape):
+        def __init__(self, width, height, color):
+            super(Rectange, self).__init__(color)
+            self.width = width
+            self.height = height
+
+
+    class Circle(Shape):
+        def __init__(self, color, radius):
+            super(Rectange, self).__init__(color)
+            self.radius = radius
+
+        def calculate_area(self):
+            import math
+            print(self.radius * self.radius * math.pi)
+
+
+
+redefining methods
+
+
+.. code-block:: python
+
+    import math
+
+    class Pizza (object):
+        def __init__ ( self , radius):
+            self .radius = radius
+
+        def circumference ( self ):
+            return 2 * math.pi * self .radius
+
+    class Calzone (Pizza):
+        def circumference ( self ):
+            c = super(Calzone, self ).cf()
+            return c / 2. + 2 * self .radius
+
+
+netCDF4
+=======
+
+required workaround for netcdf4 install
+
+.. code-block:: python
+
+    sudo CFLAGS="-I/usr/include/hdf5/serial/" pip install netCDF4
+
+GDAL / Rasterio
+===============
+
+Import raster data and display some info with rasterio
+
+.. code-block:: python
+
+    import os
+    import rasterio
+
+    os.chdir('/home/hoelk/Dropbox/uni/geopython/12_gdal/')
+
+    with rasterio.drivers():
+        with rasterio.open(os.path.join("07 dsm_zco.tif")) as src:
+            print(src.driver)
+            print 'Origin = (', src.affine[2], ',', src.affine[5], ')'
+            print 'Pixel Size = (', src.affine[0], ',', src.affine[4], ')'
+            print(src.crs_wkt)
+            print(src.res)
+            print(src.nodatavals)
+            print(src.dtypes)
