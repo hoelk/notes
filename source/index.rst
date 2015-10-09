@@ -24,6 +24,8 @@ Contents:
    implgis_ex
    linux
    sphinx
+   statmuster
+   unido
 
 
 Indices and tables

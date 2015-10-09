@@ -32,7 +32,7 @@ import sphinx_bootstrap_theme
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
-    'rst2pdf.pdfbuilder',
+    'sphinx.ext.graphviz'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

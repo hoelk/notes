@@ -1,8 +1,8 @@
 Javascript
 ##########
 
-Usefull Libraries
-=================
+Useful Libraries
+================
 
 D3.js is a JavaScript library for manipulating documents based on data. http://d3js.org/
 
@@ -63,6 +63,7 @@ Hoisting fun with functions
 ---------------------------
 
 .. code-block:: js
+
     sayHello();
     // 'Hello' works, whole function is hoisted from Bewllow
 
@@ -73,7 +74,7 @@ Hoisting fun with functions
     sayHello2();
     // does not work!
 
-    var sayHello = function() {
+    var sayHello2 = function() {
         console.log("Hello");
     }
 
