@@ -26,6 +26,8 @@ Contents:
    sphinx
    statmuster
    unido
+   statat
+   pcprocessing
 
 
 Indices and tables
