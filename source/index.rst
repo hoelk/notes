@@ -15,19 +15,20 @@ Contents:
    python
    javascript
    sql
+   linux
+
+   unido
+   statat
+
+   implgis
    cartoinfo
-   cartoinfo_ex
    pct_ex
    geoalg
    stats
-   implgis
-   implgis_ex
-   linux
-   sphinx
    statmuster
-   unido
-   statat
    pcprocessing
+
+   sphinx
 
 
 Indices and tables

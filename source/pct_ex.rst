@@ -1,5 +1,5 @@
-Programming of Cartographic Tasks - Assignments
-###############################################
+Programming of Cartographic Tasks
+#################################
 
 2015-03-27
 ==========

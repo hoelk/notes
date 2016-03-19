@@ -1,5 +1,5 @@
 Geometric Algorithms
-====================
+####################
 
 Exam Topics
 ===========
