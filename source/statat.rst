@@ -57,7 +57,7 @@ Variablen (Auswahl):
     * Nur lkw größer 3.5t
 
     * Große unterschiede zu ESGVS für einzelne Länder, gut übereinstimmung
-        für andere.
+        für andere
 
 
 Mautdaten & Automatische Zählstellen
@@ -80,3 +80,33 @@ Verfahren
 * Matrixkorrekturverfahren
     * Mit VISUM VStromFuzzy
     * Korrektur der Quell-Ziel matrix mittels Zählstellen
+
+
+Schlussfolgerungen
+******************
+
+* ESGSV enthält transitverkehr, der aufgrund Plausibilitätsprüfung nicht
+    zum Transitverkehr zählen sollte
+* CAFT bräuchte häufigere Stichproben um saisonale Schwankungen zu erfassen
+* CAFT kann prinzipiell gut zum Angleichen der ESGSV verwendet werden,
+    findet aber leider nur alle 5 Jahre statt
+* Ziwschenhalte und Be- und Entladevorgänge fehlen
+* Unterfassung in Österreich viel durch mangelnde Beantwortung
+
+* BMVIT will einzelfahrt Daten von statat
+* ASFINAG daten nicht im gewünschten umfang um zielß-quell matrix zu verbessern
+    * Ableiten der Fahrten funktioniert nicht gut
+* Zu intermodalem verkehr kann man nicht viel sagen
+
+
+Verbesserungsvorschläge
+***********************
+
+* Einbeziehung der Datenv on Spediteuren (Frachtbriefe)
+* Daten der Wirtschaftskammer
+* Daten der Verladeterminals und Eisenbahnunternehmen
+* Kontrolle via automatischer Verkehrszählstellen
+
+
+Notizen - Fragebogen
+* N-A um falschmeldungen zu umgehen
