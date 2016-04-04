@@ -76,10 +76,18 @@ Mautdaten & Automatische Zählstellen
 Verfahren
 *********
 
-* Disaggregierung weilo SGVS detailierter als ESGVS
-* Matrixkorrekturverfahren
-    * Mit VISUM VStromFuzzy
-    * Korrektur der Quell-Ziel matrix mittels Zählstellen
+* Matrixkorrekturverfahren Mit VISUM VStromFuzzy Model
+    1. Disaggregation auf VMO bezirke
+    2. Umrechnung von Jahresmatrix auf Werktagsmatrix
+    3. Einbezug CAFT daten
+    4. Matrixkorrektur mitels ASFINAG Mautdaten und Automatischen Zählstellen
+
+Funktionierts?
+**************
+
+3. CAFT daten nur für gränzübergänge, alpenlpässe. Wäre besser wenn gleichmäßiger verteilt. Nur alle 5 jahre. Zu selten im jahr
+4. ASFINAG Ableitung vonf ahrten schwer, nur höherrangige strasen, gewichtungsfunktion ausschlaggebend und schlechte erfahrungen im personenverkehr mit ähnlichen verfahren
+    
 
 
 Schlussfolgerungen
