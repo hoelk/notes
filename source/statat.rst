@@ -85,13 +85,13 @@ Funktionierts?
 **************
 
 3. CAFT daten 
-   * nur für 9 Gränzübergänge und 9 alpenlpässe. Wäre besser wenn gleichmäßiger verteilt
-   * Nur alle 5 Jahre
-   * Zu selten im Jahr (saisonale schwankungen)
+   1. nur für 9 Gränzübergänge und 9 alpenlpässe. Wäre besser wenn gleichmäßiger verteilt
+   1. Nur alle 5 Jahre
+   1. Zu selten im Jahr (saisonale schwankungen)
 4. ASFINAG 
-   * Ableitung von Fahrten schwer
-   * Nur höherrangige Straßen
-   * Gewichtungsfunktion ausschlaggebend und schlechte Erfahrungen im personenverkehr mit ähnlichen verfahren
+   1. Ableitung von Fahrten schwer
+   1. Nur höherrangige Straßen
+   1. Gewichtungsfunktion ausschlaggebend und schlechte Erfahrungen im personenverkehr mit ähnlichen verfahren
    
     
 
