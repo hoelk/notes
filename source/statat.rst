@@ -1,14 +1,25 @@
 Statistik Austria
 #################
 
+Glossary
+********
+
+* Transportaufkommen [t]: Bruttogewicht des Beförderten Gutes
+* Transportleistung  [tkm]: Transportaufkommen * Weg
+
+
+IMoVE Paper
+===========
+
+
 ESGVS - Europäische Straßengüterverkehrsstatistik
 SGVS  - (Österreichische) Straßengüterverkehrsstatistik
 
 Datenquellen:
-*************
+-------------
 
 ESGVS / SGVS
-============
+~~~~~~~~~~~~
 
 ESGVS: Statistiken der Einzelländer werden geprüft und aggregier
     * Aggregationsebene: Nuts 3 (= Bezirke)
@@ -42,7 +53,7 @@ Unterschiede SGVS / ESGVS
         kürzer als von ausländischen
 
 CAFT
-====
+~~~~
 
 Multinationale Stichtagsbefragung von LKW lenkern an Alpenpässen
 und Grenzübergängen, in AT 9 Pässe und 9 Übergänge, ugf 38 Tage im Jahr.
@@ -61,7 +72,7 @@ Variablen (Auswahl):
 
 
 Mautdaten & Automatische Zählstellen
-====================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Mautbrücken:
     * Fahrzeuge über 3.5t
@@ -74,7 +85,7 @@ Mautdaten & Automatische Zählstellen
 
 
 Verfahren
-*********
+---------
 
  1. Disaggregation auf VMO bezirke
  2. Umrechnung von Jahresmatrix auf Werktagsmatrix
@@ -82,7 +93,7 @@ Verfahren
  4. Matrixkorrektur mitels ASFINAG Mautdaten und Automatischen Zählstellen
 
 Funktionierts?
-**************
+~~~~~~~~~~~~~~
 
 3. CAFT daten 
    1. nur für 9 Gränzübergänge und 9 alpenlpässe. Wäre besser wenn gleichmäßiger verteilt
@@ -97,7 +108,7 @@ Funktionierts?
 
 
 Schlussfolgerungen
-******************
+------------------
 
 * ESGSV enthält transitverkehr, der aufgrund Plausibilitätsprüfung nicht
     zum Transitverkehr zählen sollte
