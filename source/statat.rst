@@ -4,9 +4,9 @@ Statistik Austria
 Glossary
 ********
 
-* Transportaufkommen [t]: Bruttogewicht des Beförderten Gutes
-* Transportleistung  [tkm]: Transportaufkommen * Weg   _???
-
+* Transportaufkommen [t/Jahr]: Bruttogewicht des Beförderten Gutes
+* Transportleistung  [tkm/Jahr]: Transportaufkommen * Weg pro Zeit
+* Verkehrsaufkommen (Fahrten / Zeit)
 
 IMoVE Paper
 ===========
@@ -24,9 +24,9 @@ ESGVS / SGVS
 ESGVS: Statistiken der Einzelländer werden geprüft und aggregier
     * Aggregationsebene: Nuts 3 (= Bezirke)
 SGVS: Fliest direkt ein mit
-    * LKW-Verkehrsaufkommen (Fahrten / Zeit)
-    * Transportaufkommen    (Tonnen  / Zeit)
-    * Transportleistung     (Tonnenkilometer / Zeit)  ????
+    * LKW-Verkehrsaufkommen
+    * Transportaufkommen    
+    * Transportleistung     
 
 ESGVS erfasst tendenziell unter, weil:
     * Ist schwer zu sagen weil es keine direkten vergleichszahlen gibt, aber es
