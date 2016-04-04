@@ -5,7 +5,7 @@ Glossary
 ********
 
 * Transportaufkommen [t]: Bruttogewicht des Beförderten Gutes
-* Transportleistung  [tkm]: Transportaufkommen * Weg
+* Transportleistung  [tkm]: Transportaufkommen * Weg   _???
 
 
 IMoVE Paper
@@ -26,7 +26,7 @@ ESGVS: Statistiken der Einzelländer werden geprüft und aggregier
 SGVS: Fliest direkt ein mit
     * LKW-Verkehrsaufkommen (Fahrten / Zeit)
     * Transportaufkommen    (Tonnen  / Zeit)
-    * Transportleistung     (Tonnenkilometer / Zeit)
+    * Transportleistung     (Tonnenkilometer / Zeit)  ????
 
 ESGVS erfasst tendenziell unter, weil:
     * Ist schwer zu sagen weil es keine direkten vergleichszahlen gibt, aber es
