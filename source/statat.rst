@@ -98,10 +98,10 @@ Mautdaten & Automatische Zählstellen
 Verfahren
 ---------
 
- 1. Disaggregation auf VMO bezirke
- 2. Umrechnung von Jahresmatrix auf Werktagsmatrix
- 3. Einbezug CAFT daten
- 4. Matrixkorrektur mitels ASFINAG Mautdaten und Automatischen Zählstellen
+#. Disaggregation auf VMO bezirke
+#. Umrechnung von Jahresmatrix auf Werktagsmatrix
+#. Einbezug CAFT daten
+#. Matrixkorrektur mitels ASFINAG Mautdaten und Automatischen Zählstellen
 
 Funktionierts?
 ~~~~~~~~~~~~~~
