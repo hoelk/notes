@@ -136,7 +136,7 @@ Schlussfolgerungen
 
 
 Verbesserungsvorschläge
-***********************
+=======================
 
 * Einbeziehung der Datenv on Spediteuren (Frachtbriefe)
 * Daten der Wirtschaftskammer
@@ -145,4 +145,6 @@ Verbesserungsvorschläge
 
 
 Notizen - Fragebogen
+********************
+
 * N-A um falschmeldungen zu umgehen
