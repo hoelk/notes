@@ -8,10 +8,22 @@ Glossary
 * Transportleistung  [tkm/Jahr]: Transportaufkommen * Weg pro Zeit
 * Verkehrsaufkommen (Fahrten / Zeit)
 
+Intermodal Transport Grant
+==========================
+
+Probleme:
+
+* Containergrößen nicht bekannt
+* Für contianer nur Quelle und Ziel
+* Umladebahnhöfe nicht bekannt. Daten existieren, sind aber (noch?) nicht verfügbar für uns
+* ÖBB Infra
+  * Terminasl: Gewicht, aber keine Güterart
+  * Kein Kennzeichen digital vorhanden (aber auf Papier)
+  * Vl. haben spediteuere mehr?
+ 
+
 IMoVE Paper
 ===========
-
-
 ESGVS - Europäische Straßengüterverkehrsstatistik
 SGVS  - (Österreichische) Straßengüterverkehrsstatistik
 
