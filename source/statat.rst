@@ -70,17 +70,17 @@ CAFT
 Multinationale Stichtagsbefragung von LKW lenkern an Alpenpässen
 und Grenzübergängen, in AT 9 Pässe und 9 Übergänge, ugf 38 Tage im Jahr.
 Variablen (Auswahl):
-    * Anzahl Achsen
-    * Zulassungsland
-    * Route
-    * Transportierte Warengruppe
-    * Ziel
-    * Qulle-Ziel in Österreich Gemeindescharf, sonnst in abhängigkeit
-        der Entfernung von AT
-    * Nur lkw größer 3.5t
+* Anzahl Achsen
+* Zulassungsland
+* Route
+* Transportierte Warengruppe
+* Ziel
+* Qulle-Ziel in Österreich Gemeindescharf, sonnst in abhängigkeit
+    der Entfernung von AT
+* Nur lkw größer 3.5t
 
-    * Große unterschiede zu ESGVS für einzelne Länder, gut übereinstimmung
-        für andere
+* Große unterschiede zu ESGVS für einzelne Länder, gut übereinstimmung
+    für andere
 
 
 Mautdaten & Automatische Zählstellen
