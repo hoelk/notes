@@ -54,3 +54,11 @@ Samba
 
   net usershare add Sharename /pfad/zu/ordner "Kommentar" Everyone:f guest_ok=y  # Everyone:r to allow only read access
   sudo service smbd restart
+
+
+Host
+====
+
+* TSO(username$) - signon
+* spf
+* 3.4 - files suchen
