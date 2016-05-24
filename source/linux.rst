@@ -56,9 +56,3 @@ Samba
   sudo service smbd restart
 
 
-Host
-====
-
-* TSO(username$) - signon
-* spf
-* 3.4 - files suchen
