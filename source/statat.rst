@@ -1,21 +1,44 @@
 Statistik Austria
 #################
 
+Glossary
+********
+
+* Transportaufkommen [t/Jahr]: Bruttogewicht des Beförderten Gutes
+* Transportleistung  [tkm/Jahr]: Transportaufkommen * Weg pro Zeit
+* Verkehrsaufkommen (Fahrten / Zeit)
+
+Intermodal Transport Grant
+==========================
+
+Probleme:
+
+* Containergrößen nicht bekannt
+* Für contianer nur Quelle und Ziel
+* Umladebahnhöfe nicht bekannt. Daten existieren, sind aber (noch?) nicht verfügbar für uns
+* ÖBB Infra
+  * Terminasl: Gewicht, aber keine Güterart
+  * Kein Kennzeichen digital vorhanden (aber auf Papier)
+  * Vl. haben spediteuere mehr?
+ 
+
+IMoVE Paper
+===========
 ESGVS - Europäische Straßengüterverkehrsstatistik
 SGVS  - (Österreichische) Straßengüterverkehrsstatistik
 
 Datenquellen:
-*************
+-------------
 
 ESGVS / SGVS
-============
+~~~~~~~~~~~~
 
 ESGVS: Statistiken der Einzelländer werden geprüft und aggregier
     * Aggregationsebene: Nuts 3 (= Bezirke)
 SGVS: Fliest direkt ein mit
-    * LKW-Verkehrsaufkommen (Fahrten / Zeit)
-    * Transportaufkommen    (Tonnen  / Zeit)
-    * Transportleistung     (Tonnenkilometer / Zeit)
+    * LKW-Verkehrsaufkommen
+    * Transportaufkommen    
+    * Transportleistung     
 
 ESGVS erfasst tendenziell unter, weil:
     * Ist schwer zu sagen weil es keine direkten vergleichszahlen gibt, aber es
@@ -42,26 +65,25 @@ Unterschiede SGVS / ESGVS
         kürzer als von ausländischen
 
 CAFT
-====
+~~~~
 
 Multinationale Stichtagsbefragung von LKW lenkern an Alpenpässen
 und Grenzübergängen, in AT 9 Pässe und 9 Übergänge, ugf 38 Tage im Jahr.
 Variablen (Auswahl):
-    * Anzahl Achsen
-    * Zulassungsland
-    * Route
-    * Transportierte Warengruppe
-    * Ziel
-    * Qulle-Ziel in Österreich Gemeindescharf, sonnst in abhängigkeit
-        der Entfernung von AT
-    * Nur lkw größer 3.5t
 
-    * Große unterschiede zu ESGVS für einzelne Länder, gut übereinstimmung
-        für andere
+* Anzahl Achsen
+* Zulassungsland
+* Route
+* Transportierte Warengruppe
+* Ziel
+* Qulle-Ziel in Österreich Gemeindescharf, sonnst in abhängigkeit der Entfernung von AT
+* Nur lkw größer 3.5t
+
+* Große unterschiede zu ESGVS für einzelne Länder, gut übereinstimmung für andere
 
 
 Mautdaten & Automatische Zählstellen
-====================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Mautbrücken:
     * Fahrzeuge über 3.5t
@@ -74,16 +96,30 @@ Mautdaten & Automatische Zählstellen
 
 
 Verfahren
-*********
+---------
 
-* Disaggregierung weilo SGVS detailierter als ESGVS
-* Matrixkorrekturverfahren
-    * Mit VISUM VStromFuzzy
-    * Korrektur der Quell-Ziel matrix mittels Zählstellen
+#. Disaggregation auf VMO bezirke
+#. Umrechnung von Jahresmatrix auf Werktagsmatrix
+#. Einbezug CAFT daten
+#. Matrixkorrektur mitels ASFINAG Mautdaten und Automatischen Zählstellen
+
+Funktionierts?
+~~~~~~~~~~~~~~
+
+3. CAFT daten 
+   1. nur für 9 Gränzübergänge und 9 alpenlpässe. Wäre besser wenn gleichmäßiger verteilt
+   1. Nur alle 5 Jahre
+   1. Zu selten im Jahr (saisonale schwankungen)
+4. ASFINAG 
+   1. Ableitung von Fahrten schwer
+   1. Nur höherrangige Straßen
+   1. Gewichtungsfunktion ausschlaggebend und schlechte Erfahrungen im personenverkehr mit ähnlichen verfahren
+   
+    
 
 
 Schlussfolgerungen
-******************
+------------------
 
 * ESGSV enthält transitverkehr, der aufgrund Plausibilitätsprüfung nicht
     zum Transitverkehr zählen sollte
@@ -100,7 +136,7 @@ Schlussfolgerungen
 
 
 Verbesserungsvorschläge
-***********************
+=======================
 
 * Einbeziehung der Datenv on Spediteuren (Frachtbriefe)
 * Daten der Wirtschaftskammer
